@@ -191,9 +191,9 @@
                         <h4 class="backgrounds"> CAR DETAILS </h4>
                         <div>
                             <div class="positionadjust pt-3 ">
-                                <label for="carRegistration" class="form-label pt-1 ms-4 ">Your Car Registration :
+                                <label for="carRegistration" class="form-label pt-1 ">Your Car Registration :
                                     *</label>
-                                <input type="text" class="form-control w-25 ms-2" id="carRegistratoin"
+                                <input type="text" class="form-control w-25 ms-1" id="carRegistratoin"
                                     placeholder="Enter your car registration" name="carRegistratoin">
                                 <span class="text-danger">
                                     @error('carRegistratoin')
@@ -203,8 +203,8 @@
                             </div>
                             <h5 class="pt-3">Select your advert category or Name your Vechials </h5>
                             <div class="positionadjust pt-3 ">
-                                <label for="price" class="form-lable pt-1 ms-4">Car Name :</label>
-                                <input type="text " class="form-control w-25 ms-5" id="CarName"
+                                <label for="price" class="form-lable pt-1 "> Your Car Name :</label>
+                                <input type="text " class="form-control w-25 ms-3" id="CarName"
                                     placeholder=" Civic C Class 2019 C180" name="CarName">
                                 <span class="text-danger">
                                     @error('CarName')
@@ -217,8 +217,8 @@
 
                         <div>
                             <div class="positionadjust  pt-2">
-                                <label for="price" class="form-lable pt-1 ms-4">Asking Price : *</label>
-                                <input type="text " class="form-control w-25 ms-5" id="askingprice"
+                                <label for="price" class="form-lable pt-1 ">Asking Price : *</label>
+                                <input type="text " class="form-control w-25 " id="askingprice"
                                     placeholder="Asking Price" name="askingprice">
                                 <span class="text-danger">
                                     @error('askingprice')
@@ -237,7 +237,7 @@
                                 </label>
                             </div> --}}
                             <div class="positionadjust decriptiontextarea pt-2 ">
-                                <label for="price" class="form-lable pt-1 ms-4 ">DISCRIPTION : *</label>
+                                <label for="price" class="form-lable pt-1  ">DISCRIPTION : *</label>
                                 <textarea class="form-control w-75" id="description" rows="5" cols="3" name="description"></textarea>
                                 <span class="text-danger">
                                     @error('description')
@@ -246,9 +246,9 @@
                                 </span>
                             </div>
                             <div class="positionadjust  pt-2">
-                                <label for="price" class="form-lable pt-1 ms-4">Part Exchange :</label>
+                                <label for="price" class="form-lable pt-1 ">Part Exchange :</label>
 
-                                <input type="text " class="form-control w-35 ms-5" id="askingprice" placeholder=""
+                                <input type="text " class="form-control w-35 ms-1" id="askingprice" placeholder=""
                                     name="partexchange">If
                                 you change Part then fill it
                                 <span class="text-danger">
