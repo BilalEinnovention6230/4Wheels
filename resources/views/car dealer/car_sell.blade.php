@@ -6,9 +6,9 @@
 
         }
 
-        .prev {
-            float: left
-        }
+        /* .prev {
+                float: left
+            } */
 
         .content__title {
             font-size: 20px;
@@ -195,22 +195,22 @@
                                     *</label>
                                 <input type="text" class="form-control w-25 ms-2" id="carRegistratoin"
                                     placeholder="Enter your car registration" name="carRegistratoin">
-                                    <span class="text-danger">
-                                        @error('carRegistratoin')
-                                            {{ $message }}
-                                        @enderror
-                                        </span>
+                                <span class="text-danger">
+                                    @error('carRegistratoin')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                             <h5 class="pt-3">Select your advert category or Name your Vechials </h5>
                             <div class="positionadjust pt-3 ">
                                 <label for="price" class="form-lable pt-1 ms-4">Car Name :</label>
                                 <input type="text " class="form-control w-25 ms-5" id="CarName"
                                     placeholder=" Civic C Class 2019 C180" name="CarName">
-                                    <span class="text-danger">
-                                        @error('CarName')
-                                            {{ $message }}
-                                        @enderror
-                                        </span>
+                                <span class="text-danger">
+                                    @error('CarName')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <h4 class="backgrounds mt-4">Add price and description</h4>
@@ -220,13 +220,13 @@
                                 <label for="price" class="form-lable pt-1 ms-4">Asking Price : *</label>
                                 <input type="text " class="form-control w-25 ms-5" id="askingprice"
                                     placeholder="Asking Price" name="askingprice">
-                                    <span class="text-danger">
-                                        @error('askingprice')
-                                            {{ $message }}
-                                        @enderror
-                                        </span>
+                                <span class="text-danger">
+                                    @error('askingprice')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
-                            <div class="positionadjust  pt-1">
+                            {{-- <div class="positionadjust  pt-1">
                                 <label for="checking" class="pt-1 ms-4">Price Display :</label>
                                 <label>
                                     <input type="radio" name="price" id="price" class="ms-5 mt-2">visible
@@ -235,7 +235,7 @@
                                     <input type="radio" name="price" id="price" checked class="ms-5 mt-2"
                                         checked>Price On Application
                                 </label>
-                            </div>
+                            </div> --}}
                             <div class="positionadjust decriptiontextarea pt-2 ">
                                 <label for="price" class="form-lable pt-1 ms-4 ">DISCRIPTION : *</label>
                                 <textarea class="form-control w-75" id="description" rows="5" cols="3" name="description"></textarea>
@@ -243,7 +243,7 @@
                                     @error('description')
                                         {{ $message }}
                                     @enderror
-                                    </span>
+                                </span>
                             </div>
                             <div class="positionadjust  pt-2">
                                 <label for="price" class="form-lable pt-1 ms-4">Part Exchange :</label>
@@ -255,7 +255,7 @@
                                     @error('partexchange')
                                         {{ $message }}
                                     @enderror
-                                    </span>
+                                </span>
 
                             </div>
                         </div>
@@ -266,13 +266,13 @@
                             <div class="col">
                                 <div class="mb-3 positionadjust">
                                     <label class="form-label pt-2 ms-5" for="CardName ">Car Milage :</label>
-                                    <input type="text" class="form-control w-35 ms-1" id="CardName"
+                                    <input type="number" class="form-control w-35 ms-1" id="CardName"
                                         placeholder="Enter Name" name="Milage">
-                                        <span class="text-danger">
-                                            @error('Milage')
-                                                {{ $message }}
-                                            @enderror
-                                            </span>
+                                    <span class="text-danger">
+                                        @error('Milage')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
                                 </div>
                             </div>
                             <div class="col">
@@ -280,6 +280,7 @@
                                     <label for="CVV" class="form-label pt-3 ms-5">YEARS : *</label>
                                     <select name="modelYear" class=" form-control w-35 ms-3 " id="modelYear1">
                                         <option value=""></option>
+                                        <option value="2024">2024</option>
                                         <option value="2023">2023</option>
                                         <option value="2022">2022</option>
                                         <option value="2021">2021</option>
@@ -309,7 +310,7 @@
                                         @error('modelYear')
                                             {{ $message }}
                                         @enderror
-                                        </span>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -329,7 +330,7 @@
                                         @error('Doors')
                                             {{ $message }}
                                         @enderror
-                                        </span>
+                                    </span>
                                 </div>
                             </div>
 
@@ -349,7 +350,7 @@
                                         @error('GearBox')
                                             {{ $message }}
                                         @enderror
-                                        </span>
+                                    </span>
                                 </div>
                             </div>
                         </div>
@@ -371,7 +372,7 @@
                                     @error('engintype')
                                         {{ $message }}
                                     @enderror
-                                    </span>
+                                </span>
                             </div>
                         </div>
                         <div class="col positionadjust">
@@ -402,7 +403,7 @@
                                 @error('colour')
                                     {{ $message }}
                                 @enderror
-                                </span>
+                            </span>
                         </div>
                     </div>
                     <legend class="text-danger">PistonHead Essentials</legend>
@@ -421,7 +422,7 @@
                                     @error('PistonHead')
                                         {{ $message }}
                                     @enderror
-                                    </span>
+                                </span>
                             </div>
                         </div>
 
@@ -438,7 +439,7 @@
                                     @error('Aspiration')
                                         {{ $message }}
                                     @enderror
-                                    </span>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -446,14 +447,14 @@
                         <div class="col">
                             <div class="mb-3 positionadjust">
                                 <label class="form-label pt-2 " for="CardName ">Engine size (Litres):</label>
-                                <input type="text" class="form-control w-35 ms-1" id="CardName" placeholder=""
+                                <input type="number" class="form-control w-35 ms-1" id="CardName" placeholder=""
                                     name="enginesize">
                             </div>
                             <span class="text-danger">
                                 @error('enginesize')
                                     {{ $message }}
                                 @enderror
-                                </span>
+                            </span>
                         </div>
                         <div class="col">
                             <div class="mb-3 positionadjust">
@@ -477,7 +478,7 @@
                                     @error('Cylinder')
                                         {{ $message }}
                                     @enderror
-                                    </span>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -487,11 +488,11 @@
                                 <label class="form-label pt-2 " for="CardName ">Fuel Consumption:</label>
                                 <input type="text" class="form-control w-35 ms-1" id="CardName" placeholder=""
                                     name="FuelConsumption">
-                                    <span class="text-danger">
-                                        @error('FuelConsumption')
-                                            {{ $message }}
-                                        @enderror
-                                        </span>
+                                <span class="text-danger">
+                                    @error('FuelConsumption')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <div class="col">
@@ -513,7 +514,7 @@
                                     @error('noCylinder')
                                         {{ $message }}
                                     @enderror
-                                    </span>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -523,23 +524,23 @@
                                 <label class="form-label pt-2 ms-5" for="CardName ">Health:</label>
                                 <input type="text" class="form-control w-35 ms-1" id="CardName" placeholder=""
                                     name="Health">
-                                    <span class="text-danger">
-                                        @error('Health')
-                                            {{ $message }}
-                                        @enderror
-                                        </span>
+                                <span class="text-danger">
+                                    @error('Health')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3 positionadjust">
                                 <label class="form-label pt-2 ms-5" for="CardName ">Top speed (mph):</label>
-                                <input type="text" class="form-control w-35 ms-1" id="CardName" placeholder=""
+                                <input type="number" class="form-control w-35 ms-1" id="CardName" placeholder=""
                                     name="topspeed">
-                                    <span class="text-danger">
-                                        @error('topspeed')
-                                            {{ $message }}
-                                        @enderror
-                                        </span>
+                                <span class="text-danger">
+                                    @error('topspeed')
+                                        {{ $message }}
+                                    @enderror
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -563,7 +564,7 @@
                                     @error('Drivenwheels')
                                         {{ $message }}
                                     @enderror
-                                    </span>
+                                </span>
                             </div>
                         </div>
                         <div class="col">
@@ -583,7 +584,7 @@
                                     @error('Owners')
                                         {{ $message }}
                                     @enderror
-                                    </span>
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -607,11 +608,11 @@
                                     <label class="form-label pt-2 ms-4" for="valid">1st Name :*</label>
                                     <input type="text" class="form-control w-35 ms-4" id="fullname"
                                         placeholder="i.e John" name="fullname">
-                                        <span class="text-danger">
-                                            @error('fullname')
-                                                {{ $message }}
-                                            @enderror
-                                            </span>
+                                    <span class="text-danger">
+                                        @error('fullname')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
                                 </div>
                             </div>
                             <div class="col">
@@ -619,11 +620,11 @@
                                     <label class="form-label pt-2 ms-4" for="valid">2nd Name :*</label>
                                     <input type="text" class="form-control w-35 ms-4" id="fullname"
                                         placeholder="i.e Doe" name="lastname">
-                                        <span class="text-danger">
-                                            @error('lastname')
-                                                {{ $message }}
-                                            @enderror
-                                            </span>
+                                    <span class="text-danger">
+                                        @error('lastname')
+                                            {{ $message }}
+                                        @enderror
+                                    </span>
                                 </div>
                             </div>
                             <div class="row pt-2">
@@ -633,11 +634,11 @@
                                         <input type="text" class="form-control w-75 ms-4 pt-2" id="fullname"
                                             placeholder="alfalah town  ,    badien road  ,    Lahore   , PUNJAB"
                                             name="address1">
-                                            <span class="text-danger">
-                                                @error('address1')
-                                                    {{ $message }}
-                                                @enderror
-                                                </span>
+                                        <span class="text-danger">
+                                            @error('address1')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -648,11 +649,11 @@
                                         <input type="text" class="form-control w-75 ms-4 pt-2" id="fullname"
                                             placeholder="Narang mandi   ,     dara ashraf   ,    Narowall    ,  Punjab   "
                                             name="address2">
-                                            <span class="text-danger">
-                                                @error('address2')
-                                                    {{ $message }}
-                                                @enderror
-                                                </span>
+                                        <span class="text-danger">
+                                            @error('address2')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -666,13 +667,13 @@
                                             <option value="AU">Islamabad</option>
                                             <option value="AT">Peshawar</option>
                                             <option value="BE">Quetta</option>
-                                            <option value="BR">Multan</option> 
+                                            <option value="BR">Multan</option>
                                         </select>
-                                            <span class="text-danger">
-                                                @error('town')
-                                                    {{ $message }}
-                                                @enderror
-                                                </span>
+                                        <span class="text-danger">
+                                            @error('town')
+                                                {{ $message }}
+                                            @enderror
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="col">
@@ -752,33 +753,33 @@
                                             @error('country')
                                                 {{ $message }}
                                             @enderror
-                                            </span>
+                                        </span>
                                     </div>
                                 </div>
                                 <div class="row pt-2">
                                     <div class="col">
                                         <div class="mb-3 positionadjust">
                                             <label class="form-label pt-2 ms-4" for="valid">Postcode :*</label>
-                                            <input type="text" class="form-control w-35 ms-4" id="fullname"
+                                            <input type="number" class="form-control w-35 ms-4" id="fullname"
                                                 placeholder="" name="Postcode">
-                                                <span class="text-danger">
-                                                    @error('CarName')
-                                                        {{ $message }}
-                                                    @enderror
-                                                    </span>
+                                            <span class="text-danger">
+                                                @error('CarName')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="mb-3 positionadjust">
                                             <label class="form-label pt-2 ms-4" for="valid">Telephone Number
                                                 :*</label>
-                                            <input type="text" class="form-control w-35 ms-1" id="fullname"
+                                            <input type="number" class="form-control w-35 ms-1" id="fullname"
                                                 placeholder="+923480332899" name="Telephone">
-                                                <span class="text-danger">
-                                                    @error('Telephone')
-                                                        {{ $message }}
-                                                    @enderror
-                                                    </span>
+                                            <span class="text-danger">
+                                                @error('Telephone')
+                                                    {{ $message }}
+                                                @enderror
+                                            </span>
                                         </div>
                                     </div>
                                     <div class="button-row   mt-4">
@@ -800,41 +801,29 @@
                     <div class="multisteps-form__content">
                         <div class="container">
                             <div class="row">
-
-                                <div class="col">
-                                    <div class="mb-3 ">
-
-                                    </div>
-                                    <div class="col">
-                                        <div class="mb-3">
+                                <div class="col-4">
+                                    <div class="mb-3">
+                                        <div id="row_field">
                                             <div class="row">
-                                                <div class="col-md-6">
-                                                    <div id="row_field">
-                                                        <div class="row">
-                                                            <div class="col-md-8">
-                                                                <input type="file" class="form-control" name="image1"
-                                                                    multiple="">
-                                                            </div>
-                                                            <div class="col">
-                                                                <a class="btn btn-success addthepic">ADD</a>
-                                                            </div>
-                                                            <div class="col">
-                                                                <button class="btn btn-danger remove">Remove</button>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-
+                                                <div class="col-md-8">
+                                                    <input type="file" class="form-control" name="image1"
+                                                        multiple="">
                                                 </div>
+                                                <div class="col">
+                                                    <a class="btn btn-success addthepic">ADD</a>
+                                                    <button class="btn btn-danger remove">Remove</button>
+                                                </div>
+                                                {{-- <div class="col">
+                                                    </div> --}}
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="button-row mt-4">
-                                        <button class="btn  btn-danger js-btn-prev prev" type="button"
-                                            title="Prev">Prev</button>
-                                        <button class="btn  btn-danger ml-auto " type="submit"
-                                            title="Next">Submit</button>
-                                    </div>
+                                </div>
+                                <div class=" mt-4 text-center">
+                                    <button class="btn  btn-danger js-btn-prev prev" type="button"
+                                        title="Prev">Prev</button>
+                                    <button class="btn  btn-danger ml-auto ms-2" type="submit"
+                                        title="Next">Submit</button>
                                 </div>
                             </div>
                         </div>
@@ -886,7 +875,7 @@
                     $('#row_field').append(
                         '<div class="row mt-2"><div class="col-md-8"><input type="file" class="form-control" name="image' +
                         i +
-                        '" multiple=""></div><div class="col"></div><div class="col"><button class="btn btn-danger remove">Remove</button></div></div>'
+                        '" multiple=""></div><div class="col"><button class="btn btn-danger remove">Remove</button></div></div>'
                     );
                 } else {
                     alert("You can add a maximum of 9 pictures.");

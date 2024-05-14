@@ -1,0 +1,944 @@
+*
+{
+    font-family: sans-serif;
+}
+.universalmargin
+{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+/* a{
+  text-decoration: none ; 
+  font-size: 10px;
+  color: #807b7b;
+  
+} */
+
+/* a:hover
+{
+    color: rgb(226, 102, 102);
+} */
+
+nav{
+    height: 50px;
+    width: 100%;
+    background-color:#1f1d1d;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+.imgn{
+    width: 11.5%;
+    position: absolute;
+    top: 0;
+}
+.short
+{
+  position: absolute;
+  right: 0;
+  top: 0px;
+}
+.icon
+{
+  position: relative;
+  top: 10px;
+
+}
+.cardbodyimage
+{
+    width: 200px;
+}
+nav .container-fluid button
+{
+
+    border-color: rgb(255, 255, 255);
+    background-color: black;
+}
+.btncolor
+{
+    border-color: red;
+    background-color: black;
+}
+nav .container-fluid .d-flex button:hover
+{
+    
+    border-color: rgb(240, 235, 234);
+    background-color: #FE1517;
+   
+    
+}
+nav .container-fluid .d-flex button:focus
+{
+    
+    border-color: rgb(240, 240, 234);
+    background-color: #FE1517;
+    
+}
+.positionadjust
+{
+    display:flex;
+    flex-direction: row;
+}
+.decriptiontextarea
+{
+    /* width: 00px; */
+    color:rgb(36, 34, 31)
+}
+legend
+{
+    font-size: 15px;
+}
+
+/* Css for Car Sell */
+.card .card-body .col-12 form
+{
+    margin-left: 10rem;
+    margin-right: 3rem;
+    margin-top: 2rem;
+}
+
+.card .card-body .col-12 form .multisteps-form__panel .multisteps-form__content .row .col .mb-3 table tbody tr td
+{
+   border: none !important;
+   
+}
+.cardmargin
+{
+
+    border: none;
+}
+
+.backgrounds
+{
+    background-color:#504d4d;
+    color: white;
+    height: 50px;
+    border-radius: 10px;
+    width: 90%;
+    padding: 10px;
+}
+
+.owl-carousel {
+    margin-top: 50px;
+  }
+  .owl-carousel .item {
+    background-color: #ddd;
+    padding: 50px;
+    margin: 10px;
+    text-align: center;
+    font-size: 36px;
+  }
+  .form-controlimage{
+    display: block;
+    margin-bottom: 10px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    
+}
+/* buy css  */
+.filtercolor
+{
+    background-color: #518ECB;
+    text-size-adjust: 20px;
+
+}
+.dropdwon_Text
+{
+    color: #0e1013 !important;
+}
+.bgcolor
+{
+    background-color: #F2F3F3;
+}
+.displayg
+{
+    display: flex;
+    flex-direction:row ;
+    align-items: center;
+}
+.backcolor
+{
+    background-color: #F2F3F3;
+}
+.cardbodyAdjust
+{
+    width: 100%;
+    height: 200px;
+    background-color: #FFFFFF;
+}
+.BodyTexAdjust
+{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+    margin-right: auto;
+}
+.middlecardadjust
+{
+    display: flex;
+    flex-direction: column;
+}
+.border-right > div:not(:last-child) {
+    border-right: 1px solid #ccc;
+  }
+.slider_button
+{
+    background-color: #acaaaa;
+}
+.h1text
+{
+    font-size: 25px;
+    color: #0b58a5;
+    font-weight: 600;
+    line-height: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+
+    margin-right: auto;
+}
+.text_center
+{
+    text-align: center;
+}
+.backgroundscolor
+{
+    background-color: #F2F3F3;
+}
+.generic-green {
+    color: #3eb549;
+    font-weight: 700;
+    font-size: 25px;
+    text-align: center;
+    margin-top: 20px;
+}
+.sold-by-pw {
+    background-color: #518ecb;
+    padding: 3px 8px;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 11px;
+    margin-left: 5px;
+    
+}
+/* .btnsizeAdjust
+{
+    width: 250px;
+    height: 60px;
+} */
+.fs22
+{
+    font-size: 15px;
+}
+.phone_number_btn {
+    padding: 3px 10px;
+}
+.btn-transparent {
+    background-color: transparent;
+    border-color:#6181da;
+    color: rgb(86, 86, 219);
+  }
+
+  .underline {
+    border: none;
+    border-top: 1px solid rgb(83, 82, 82);
+    width: 100%;
+  }
+  .unde {
+    
+    padding: 15px;
+    border-bottom: 1px solid rgb(51, 49, 49);
+    border-left: 1px solid rgb(51, 49, 49);
+    border-right: 1px solid rgb(51, 49, 49);
+    border-top: 1px solid rgb(51, 49, 49);
+    width: 90%;
+  }
+  .auction-list {
+    background: #fffcf9;
+    padding: 20px;
+    padding: 5px 15px 10px;
+    border-top: 1px solid #ecad55;
+    border-bottom: 1px solid #ecad55; 
+    margin-top: -1px;
+}
+.fs16 {
+    font-size: 16px;
+}
+/* .auction-list * {
+    box-sizing: border-box;
+} */
+.pull-right {
+    float: right !important;
+}
+.nomargin {
+    margin: 0 !important;
+}
+
+.clearfix {
+    zoom : 1;
+}
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+  /* css for insurance company  */
+  .insurace_bg {
+    background: linear-gradient(to bottom, #ffffff, #F2F3F3, #F2F3F3);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    color: #0b58a5;
+  }
+  .paddingset
+  {
+    padding: 20px;
+  }
+  .border-right
+  {
+    border-right: #536175 solid 3px;
+  }
+  .custom-line {
+    height: 4px;
+  }
+  .fixed-size-card {
+    height: 200px; /* Adjust the height as per your requirements */
+    /* overflow-y: scroll; Add a scroll bar if the content overflows */
+    width: 75%;
+    text-align: center;
+  }
+  .fixed-size {
+    height: 175px; /* Adjust the height as per your requirements */
+    /* overflow-y: scroll; Add a scroll bar if the content overflows */
+    width: 200px;
+  }
+  .form_adjust
+  {
+    margin-top: 30px;
+    margin-right: 100px;
+    margin-left: 200px;
+  }
+  .registration-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  }
+/* if there a error */
+  .registration-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .registration-form .form-control {
+    border-radius: 0;
+  }
+
+  .registration-form button {
+    border-radius: 0;
+  }
+  .center_text
+  {
+    justify-content: center;
+    display: flex;
+  }
+  /* landing page  */
+  .landing
+  {
+    height: 400px;
+    width: 100%;
+    background-color:#1f1d1d ;
+  }
+  .imgnn {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    transform: translate(-50%, -50%);
+    animation: rotate 4s linear infinite;
+    transform-origin: center center;
+  }
+  
+  @keyframes rotate {
+    0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
+  }
+  .mirza
+  {
+    background-color: #1f1d1d;
+  }
+  
+  
+  
+  
+  
+  *
+{
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.WebsiteLandingPage {
+  width: 100%;
+  height: 100vh;
+  /* background-image: linear-gradient(rgba(12,3,51,0.3),rgba(12,3,51,0.3)); */
+  position: relative;
+  padding: 0 5%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar {
+  background-color: transparent;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px 8%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Updated: Align items to the right */
+}
+ .logo
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  float: left;
+  justify-content: flex-start;
+}
+.navbar ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.navbar ul li {
+  margin-left: 40px;
+}
+
+/* .navbar ul li:first-child {
+  margin-left: 0; Updated: Remove margin from the first child
+} */
+
+.navbar ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 17px;
+}
+.navbar ul li a:hover {
+  text-decoration: none;
+  color: #fff;
+  background-color: black;
+  font-size: 17px;
+  border: black 1px solid ;
+  border-radius: 10px;
+  padding: 10px;
+}
+.content
+{
+  align-items: center;
+
+}
+.content h1
+{
+  font-size: 160px;
+  color: #fff;
+  font-weight: 600;
+}
+.back-video
+{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+    width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.car-purchase
+{
+  margin-top: 5vmax;
+}
+.car-purchase .border-left-right
+{
+  text-align: center;
+}
+ .discover
+ {
+  width: 95%;
+  padding-right: 130px;
+  padding-left: 130px;
+ }
+ .discover .col-6
+{
+ margin-top: 3vmax; 
+ transition: transform 1s; 
+ box-shadow: 0.5s;
+}
+.discover .col-6:hover
+{
+  cursor: pointer;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)
+}
+.discover .col-6 .d-flex img
+{
+  width: 80px;
+  height:80px;
+  margin: 15px; 
+}
+ .chose-us
+ {
+  width: 95%;
+ }
+ .chose-us .row .col-6 .features .Professional
+ {
+  margin-top: 40px;
+  margin-left: 60px;
+ }
+ .chose-us .row .col-6 .features .Professional .d-flex h6
+ {
+  margin-left: 20px;
+  margin-bottom: 20px;
+ }
+ .chose-us .row .col-6 .features .Professional .d-flex i
+ {
+  margin-top: 2px;
+ }
+
+.image
+{
+    float: right;
+    height: 100%;
+    animation: slideIn 4s ease;
+}
+@keyframes slideIn {
+    from {
+      transform: translateX(100%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
+  .websitetitle
+  {
+    text-align: center;
+    padding-top: 15%;
+    margin-left: 15%;
+    margin-right: 15%;
+  }
+  .modules
+  {
+    background-color: white;
+    margin: 10px 0px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    cursor: pointer;
+    transition: 0.5s;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+  }
+.modules:hover::before
+{
+  height: 100%;
+  background: #5998f5;
+  color: white;
+}
+  .modules::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 0%;
+    color: white;
+    border-radius: 0;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    border-radius: 10px;
+}
+  
+.workshops .container .mt-3 h2
+{
+  color: #FB1817;
+}
+.alert
+{
+  color: red;
+  font-size: smaller;
+}
+
+
+
+
+
+
+
+
+.universalmargin
+{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+/* a{
+  text-decoration: none ; 
+  font-size: 10px;
+  color: #807b7b;
+  
+} */
+
+/* a:hover
+{
+    color: rgb(226, 102, 102);
+} */
+
+nav{
+    height: 100px;
+    width: 100%;
+    background-color:#1f1d1d;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+.imgn{
+    width: 10%;
+    position: absolute;
+    top: 0;
+}
+.cardbodyimage
+{
+    width: 200px;
+}
+nav .container-fluid button
+{
+    margin-top: 20px;
+    border-color: red;
+    background-color: black;
+}
+.btncolor
+{
+    margin-top: 20px;
+    border-color: red;
+    background-color: black;
+}
+nav .container-fluid .d-flex button:hover
+{
+    
+    border-color: rgb(240, 235, 234);
+    background-color: #FE1517;
+   
+    
+}
+nav .container-fluid .d-flex button:focus
+{
+    
+    border-color: rgb(240, 240, 234);
+    background-color: #FE1517;
+    
+}
+.footer .container-fluid
+{
+    background-color: #0e1013;
+    color:white;
+}
+
+.positionadjust
+{
+    display:flex;
+    flex-direction: row;
+}
+.decriptiontextarea
+{
+    /* width: 00px; */
+    color:rgb(36, 34, 31)
+}
+legend
+{
+    font-size: 15px;
+}
+
+/* Css for Car Sell */
+.card .card-body .col-12 form
+{
+    margin-left: 10rem;
+    margin-right: 3rem;
+    margin-top: 2rem;
+}
+
+.card .card-body .col-12 form .multisteps-form__panel .multisteps-form__content .row .col .mb-3 table tbody tr td
+{
+   border: none !important;
+   
+}
+.cardmargin
+{
+
+    border: none;
+}
+
+.backgrounds
+{
+    background-color:#504d4d;
+    color: white;
+    height: 50px;
+    border-radius: 10px;
+    width: 90%;
+    padding: 10px;
+}
+
+.owl-carousel {
+    margin-top: 50px;
+  }
+  .owl-carousel .item {
+    background-color: #ddd;
+    padding: 50px;
+    margin: 10px;
+    text-align: center;
+    font-size: 36px;
+  }
+  .form-controlimage{
+    display: block;
+    margin-bottom: 10px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    
+}
+/* buy css  */
+.filtercolor
+{
+    background-color: #518ECB;
+    text-size-adjust: 20px;
+
+}
+.dropdwon_Text
+{
+    color: #0e1013 !important;
+}
+.bgcolor
+{
+    background-color: #F2F3F3;
+}
+.displayg
+{
+    display: flex;
+    flex-direction:row ;
+    align-items: center;
+}
+.backcolor
+{
+    background-color: #F2F3F3;
+}
+.cardbodyAdjust
+{
+    width: 100%;
+    height: 200px;
+    background-color: #FFFFFF;
+}
+.BodyTexAdjust
+{
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 22px;
+    margin-right: auto;
+}
+.middlecardadjust
+{
+    display: flex;
+    flex-direction: column;
+}
+.border-right > div:not(:last-child) {
+    border-right: 1px solid #ccc;
+  }
+.slider_button
+{
+    background-color: #acaaaa;
+}
+.h1text
+{
+    font-size: 25px;
+    color: #0b58a5;
+    font-weight: 600;
+    line-height: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+
+    margin-right: auto;
+}
+.text_center
+{
+    text-align: center;
+}
+.backgroundscolor
+{
+    background-color: #F2F3F3;
+}
+.generic-green {
+    color: #3eb549;
+    font-weight: 700;
+    font-size: 25px;
+    text-align: center;
+    margin-top: 20px;
+}
+.sold-by-pw {
+    background-color: #518ecb;
+    padding: 3px 8px;
+    border-radius: 15px;
+    color: #fff;
+    font-size: 11px;
+    margin-left: 5px;
+    
+}
+/* .btnsizeAdjust
+{
+    width: 250px;
+    height: 60px;
+} */
+.fs22
+{
+    font-size: 15px;
+}
+.phone_number_btn {
+    padding: 3px 10px;
+}
+.btn-transparent {
+    background-color: transparent;
+    border-color:#6181da;
+    color: rgb(86, 86, 219);
+  }
+
+  .underline {
+    border: none;
+    border-top: 1px solid rgb(83, 82, 82);
+    width: 100%;
+  }
+  .unde {
+    
+    padding: 15px;
+    border-bottom: 1px solid rgb(51, 49, 49);
+    border-left: 1px solid rgb(51, 49, 49);
+    border-right: 1px solid rgb(51, 49, 49);
+    border-top: 1px solid rgb(51, 49, 49);
+    width: 90%;
+  }
+  .auction-list {
+    background: #fffcf9;
+    padding: 20px;
+    padding: 5px 15px 10px;
+    border-top: 1px solid #ecad55;
+    border-bottom: 1px solid #ecad55; 
+    margin-top: -1px;
+}
+.fs16 {
+    font-size: 16px;
+}
+/* .auction-list * {
+    box-sizing: border-box;
+} */
+.pull-right {
+    float: right !important;
+}
+.nomargin {
+    margin: 0 !important;
+}
+
+.clearfix {
+    zoom: 1;
+}
+.list-unstyled {
+    padding-left: 0;
+    list-style: none;
+}
+  /* css for insurance company  */
+  .insurace_bg {
+    background: linear-gradient(to bottom, #ffffff, #F2F3F3, #F2F3F3);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    color: #0b58a5;
+  }
+  .paddingset
+  {
+    padding: 20px;
+  }
+  .border-right
+  {
+    border-right: #536175 solid 3px;
+  }
+  .custom-line {
+    height: 4px;
+  }
+  .fixed-size-card {
+    height: 200px; /* Adjust the height as per your requirements */
+    /* overflow-y: scroll; Add a scroll bar if the content overflows */
+    width: 75%;
+    text-align: center;
+  }
+  .fixed-size {
+    height: 175px; /* Adjust the height as per your requirements */
+    /* overflow-y: scroll; Add a scroll bar if the content overflows */
+    width: 200px;
+  }
+  .form_adjust
+  {
+    margin-top: 30px;
+    margin-right: 100px;
+    margin-left: 200px;
+  }
+  .registration-form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+  }
+/* if there a error */
+  .registration-form h2 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .registration-form .form-control {
+    border-radius: 0;
+  }
+
+  .registration-form button {
+    border-radius: 0;
+  }
+  .center_text
+  {
+    justify-content: center;
+    display: flex;
+  }
+  
+  
+  
+  
+  
+  

@@ -65,7 +65,7 @@ Route::post('/TransmissionType', [CarRegistration::class, 'TransmissionType'])->
 Route::post('/colour', [CarRegistration::class, 'colour'])->name('colour');
 Route::post('/Engine', [CarRegistration::class, 'Engine'])->name('Engine');
 
-Route::get('flight', [App\Http\Controllers\FlightController::class, 'flight'])->name('flight');
+// Route::get('flight', [App\Http\Controllers\FlightController::class, 'flight'])->name('flight');
 Route::get('instantbooking', [App\Http\Controllers\InstantMaintenaceController::class, 'instantbooking'])->name('instantbooking');
 Route::get('Maintanance', [App\Http\Controllers\InstantMaintenaceController::class, 'maintlending'])->name('Maintanance');
 Route::get('shop', [App\Http\Controllers\MechanicShopController::class, 'shop']);

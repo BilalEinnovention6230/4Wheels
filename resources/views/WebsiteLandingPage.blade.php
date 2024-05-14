@@ -26,7 +26,14 @@
         <nav class="navbar">
 
             <ul>
-            <li><a href="logout">Logout</a></li>
+                <li><a class="dropdown-item"
+                        onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">Logout</a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+                </li>
                 <li>
                     <select id="partnerSelect" class="form-control">
                         <option value="" hidden>Join Us</option>
