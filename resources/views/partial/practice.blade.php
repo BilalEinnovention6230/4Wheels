@@ -1,0 +1,5 @@
+@include('partial/navbar')
+@yield('content')
+@include('partial/footer')
+@include('partial/script')
+@include('partial/end')
