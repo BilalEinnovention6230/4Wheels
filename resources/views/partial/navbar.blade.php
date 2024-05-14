@@ -24,7 +24,7 @@
 
     {{-- cdn --}}
     <link rel="stylesheet" href="//cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
-
+    <link href='https://cdn.jsdelivr.net/npm/sweetalert2@10.10.1/dist/sweetalert2.min.css'>
     <!-- Global Stylesheets Bundle(used by all pages) -->
 
     <link href="/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
