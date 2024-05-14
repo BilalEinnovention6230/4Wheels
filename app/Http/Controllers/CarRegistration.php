@@ -12,13 +12,13 @@ class CarRegistration extends Controller
 {
     public function Carselling()
     {
-        return view('car dealer/car_sell');
+        $data = null;
+        return view('car dealer/car_sell', compact('data'));
     }
     public function car_buy()
     {
         $data = ModelCarRegistration::all();
         return view('car dealer/car_buy', compact('data'));
-
     }
     public function storeImage(Request $request)
     {
@@ -151,14 +151,14 @@ class CarRegistration extends Controller
                 $relativeImagePath = "images/$imageName";
                 $req->file("image$i")->move(public_path('images'), $imageName);
                 $imageFields["image$i"] = $relativeImagePath;
-                $data->update(["image$i"=>$imageFields["image$i"]]);
+                $data->update(["image$i" => $imageFields["image$i"]]);
             }
         }
 
         $profile = new profileModel;
-        $profile->email =auth()->user()->email;
-        $profile->userid =auth()->user()->id;
-        $profile->recordid =$data->id;
+        $profile->email = auth()->user()->email;
+        $profile->userid = auth()->user()->id;
+        $profile->recordid = $data->id;
         $profile->tablename = "car registration";
         $profile->save();
         // if (auth()->check()) {
@@ -173,7 +173,6 @@ class CarRegistration extends Controller
         // dd($profile);
         // dd($data);
         return redirect()->back();
-
     }
 
     //Filters
@@ -196,9 +195,9 @@ class CarRegistration extends Controller
     public function provinc(Request $req)
     {
         $filter = $req->province;
-        // $data = DB::table('car registration')->where('City', $filter)->get();
-        dd($filter);
-        // return view('car dealer/car_buy', compact('data'));
+        $data = DB::table('car registration')->where('City', $filter)->get();
+        // dd($filter);
+        return view('car dealer/car_buy', compact('data'));
     }
     public function pricerange(Request $req)
     {
@@ -273,12 +272,70 @@ class CarRegistration extends Controller
     {
         $data = ModelCarRegistration::all();
         return view('WebsiteLandingPage', compact('data'));
-
     }
     public function postadd($id)
     {
         $data = ModelCarRegistration::findOrFail($id);
         return view('car dealer\PostedAdd_buyCar', compact('data'));
+    }
+    public function edit($id)
+    {
+        $data = ModelCarRegistration::findOrFail($id);
+        return view('car dealer/car_sell', compact('data'));
+    }
+    public function update(Request $req)
+    {
+        $data =  ModelCarRegistration::find($req->id);
+        $data->RegistrrationNumber = $req->carRegistratoin;
+        $data->CarName = $req->CarName;
+        $data->CarPrice = $req->askingprice;
+        $data->cardesc = $req->description;
+        $data->PartExchange = $req->partexchange;
+        $data->CarMilage = $req->Milage;
+        $data->years = $req->modelYear;
+        $data->CarDoor = $req->Doors;
+        $data->GearBox = $req->GearBox;
+        $data->EnginType = $req->engintype;
+        $data->CarColor = $req->colour;
+        $data->EngiPosition = $req->PistonHead;
+        $data->Aspiration = $req->Aspiration;
+        $data->EngineSize = $req->enginesize;
+        $data->CylinderLayout = $req->Cylinder;
+        $data->FuelConsumption = $req->FuelConsumption;
+        $data->Health = $req->Health;
+        $data->Cylinder = $req->noCylinder;
+        $data->Owners = $req->Owners;
+        $data->TopSpeed = $req->topspeed;
+        $data->DrivenWheels = $req->Drivenwheels;
+        $data->Fname = $req->fullname;
+        $data->Lname = $req->lastname;
+        $data->Address1 = $req->address1;
+        $data->Address2 = $req->address2;
+        $data->City = $req->town;
+        $data->County = $req->country;
+        $data->PostCode = $req->Postcode;
+        $data->TelephoneNumber = $req->Telephone;
+        // $req->validate([
+        //     'image' => 'required|image|mimes:png,jpg,jpeg|max:2048'
+        // ]);
 
+        // $imageName = time().'.'.$req->image->extension();
+
+        // // Public Folder
+        // $image = $req->image->move(public_path('images'), $imageName);
+        // $relativeImagePath = str_replace(public_path(), '', $image);
+        // $data->image1= $relativeImagePath;
+        $data->save();
+        $imageFields = [];
+        for ($i = 1; $i <= 9; $i++) {
+            if ($req->hasFile("image$i")) {
+                $imageName = time() . "_$i." . $req->file("image$i")->extension();
+                $relativeImagePath = "images/$imageName";
+                $req->file("image$i")->move(public_path('images'), $imageName);
+                $imageFields["image$i"] = $relativeImagePath;
+                $data->update(["image$i" => $imageFields["image$i"]]);
+            }
+        }
+        return redirect()->route('Profile');
     }
 }

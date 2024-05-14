@@ -78,6 +78,8 @@ Route::get('deletemyadd/{recordid}', [App\Http\Controllers\MechanicShopControlle
 Route::get('/deletebooking/{user_id}/{item_id}', [App\Http\Controllers\MechanicShopController::class, 'deletebooking'])->name('deletebooking');
 Route::get('/workshop/{id}', [App\Http\Controllers\InstantMaintenaceController::class, 'viewdetails'])->name('workshop.viewdetails');
 Route::get('/WebsiteLandingPage', [CarRegistration::class, 'cardata'])->name('WebsiteLandingPage');
+Route::get('edit/{id?}', [CarRegistration::class, 'edit'])->name('post.edit');
+Route::post('update/add', [CarRegistration::class, 'update'])->name('post.update');
 Route::get('/Insurance', [InsuranceCompanyController::class, 'Insurance'])->name('Insurance');
 Route::get('/login_form', [InstantMaintenaceController::class, 'login'])->name('login');
 Route::get('/profile', [profileController::class, 'Profile'])->name('Profile');

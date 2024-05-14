@@ -183,7 +183,9 @@
                                         <a href="{{ route('delete', ['id' => $item->id]) }}">
                                             <i class="fa-solid fa-trash"></i>
                                         </a>
-                                         
+                                        <a href="{{ route('post.edit', ['id' => $item->id]) }}">
+                                            <i class="fa-solid fa-edit"></i>
+                                        </a>
                                     </td>
 
                                 </tr>

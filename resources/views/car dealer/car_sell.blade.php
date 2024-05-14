@@ -7,8 +7,8 @@
         }
 
         /* .prev {
-                            float: left
-                        } */
+                                                        float: left
+                                                    } */
 
         .content__title {
             font-size: 20px;
@@ -183,9 +183,10 @@
                 <button class="multisteps-form__progress-btn" type="button" title="Order Info">Upload picture
                 </button>
             </div>
-            <form class="multisteps-form__form" action="{{ route('bookingcreated') }}" method="POST"
+            <form class="multisteps-form__form" action="{{ $data ? route('post.update') : route('bookingcreated') }}" method="POST"
                 enctype="multipart/form-data">
                 @csrf
+                <input type="hidden" name="id" value="{{$data->id ?? ''}}" id="">
                 <div class="multisteps-form__panel  p-4 pt-6 rounded bg-white js-active" data-animation="scaleIn">
                     <div class="multisteps-form__content">
                         <h4 class="backgrounds"> CAR DETAILS </h4>
@@ -194,7 +195,8 @@
                                 <label for="carRegistration" class="form-label pt-1 ms-4 ">Your Car Registration :
                                     *</label>
                                 <input type="text" class="form-control w-25 ms-2" id="carRegistratoin"
-                                    placeholder="Enter your car registration" name="carRegistratoin">
+                                    placeholder="Enter your car registration" name="carRegistratoin"
+                                    value="{{ $data->RegistrrationNumber ?? '' }}">
                                 <span class="text-danger">
                                     @error('carRegistratoin')
                                         {{ $message }}
@@ -205,7 +207,8 @@
                             <div class="positionadjust pt-3 ">
                                 <label for="price" class="form-lable pt-1 ms-4">Car Name :</label>
                                 <input type="text " class="form-control w-25 ms-5" id="CarName"
-                                    placeholder=" Civic C Class 2019 C180" name="CarName">
+                                    placeholder=" Civic C Class 2019 C180" name="CarName"
+                                    value="{{ $data->CarName ?? '' }}">
                                 <span class="text-danger">
                                     @error('CarName')
                                         {{ $message }}
@@ -219,7 +222,7 @@
                             <div class="positionadjust  pt-2">
                                 <label for="price" class="form-lable pt-1 ms-4">Asking Price : *</label>
                                 <input type="text " class="form-control w-25 ms-5" id="askingprice"
-                                    placeholder="Asking Price" name="askingprice">
+                                    placeholder="Asking Price" name="askingprice" value="{{ $data->CarPrice ?? '' }}">
                                 <span class="text-danger">
                                     @error('askingprice')
                                         {{ $message }}
@@ -238,7 +241,7 @@
                             </div> --}}
                             <div class="positionadjust decriptiontextarea pt-2 ">
                                 <label for="price" class="form-lable pt-1 ms-4 ">DISCRIPTION : *</label>
-                                <textarea class="form-control w-75" id="description" rows="5" cols="3" name="description"></textarea>
+                                <textarea class="form-control w-75" id="description" rows="5" cols="3" name="description">{{ $data->cardesc ?? '' }}</textarea>
                                 <span class="text-danger">
                                     @error('description')
                                         {{ $message }}
@@ -249,7 +252,7 @@
                                 <label for="price" class="form-lable pt-1 ms-4">Part Exchange :</label>
 
                                 <input type="text " class="form-control w-35 ms-5" id="askingprice" placeholder=""
-                                    name="partexchange">If
+                                    name="partexchange"value="{{ $data->PartExchange ?? '' }}">If
                                 you change Part then fill it
                                 <span class="text-danger">
                                     @error('partexchange')
@@ -267,7 +270,7 @@
                                 <div class="mb-3 positionadjust">
                                     <label class="form-label pt-2 ms-5" for="CardName ">Car Milage :</label>
                                     <input type="number" class="form-control w-35 ms-1" id="CardName"
-                                        placeholder="Enter Name" name="Milage">
+                                        placeholder="Enter Name" name="Milage" value="{{ $data->CarMilage ?? '' }}">
                                     <span class="text-danger">
                                         @error('Milage')
                                             {{ $message }}
@@ -280,31 +283,56 @@
                                     <label for="CVV" class="form-label pt-3 ms-5">YEARS : *</label>
                                     <select name="modelYear" class=" form-control w-35 ms-3 " id="modelYear1">
                                         <option value=""></option>
-                                        <option value="2024">2024</option>
-                                        <option value="2023">2023</option>
-                                        <option value="2022">2022</option>
-                                        <option value="2021">2021</option>
-                                        <option value="2020">2020</option>
-                                        <option value="2019">2019</option>
-                                        <option value="2018">2018</option>
-                                        <option value="2017">2017</option>
-                                        <option value="2016">2016</option>
-                                        <option value="2015">2015</option>
-                                        <option value="2014">2014</option>
-                                        <option value="2013">2013</option>
-                                        <option value="2012">2012</option>
-                                        <option value="2011">2011</option>
-                                        <option value="2010">2010</option>
-                                        <option value="2009">2009</option>
-                                        <option value="2008">2008</option>
-                                        <option value="2007">2007</option>
-                                        <option value="2006">2006</option>
-                                        <option value="2005">2005</option>
-                                        <option value="2004">2004</option>
-                                        <option value="2003">2003</option>
-                                        <option value="2002">2002</option>
-                                        <option value="2001">2001</option>
-                                        <option value="2000">2000</option>
+                                        <option value="2024" @if ($data->years == '2024') selected @endif>2024
+                                        </option>
+                                        <option value="2023" @if ($data->years == '2023') selected @endif>2023
+                                        </option>
+                                        <option value="2022" @if ($data->years == '2022') selected @endif>2022
+                                        </option>
+                                        <option value="2021" @if ($data->years == '2021') selected @endif>2021
+                                        </option>
+                                        <option value="2020" @if ($data->years == '2020') selected @endif>2020
+                                        </option>
+                                        <option value="2019" @if ($data->years == '2019') selected @endif>2019
+                                        </option>
+                                        <option value="2018" @if ($data->years == '2018') selected @endif>2018
+                                        </option>
+                                        <option value="2017" @if ($data->years == '2017') selected @endif>2017
+                                        </option>
+                                        <option value="2016" @if ($data->years == '2016') selected @endif>2016
+                                        </option>
+                                        <option value="2015" @if ($data->years == '2015') selected @endif>2015
+                                        </option>
+                                        <option value="2014" @if ($data->years == '2014') selected @endif>2014
+                                        </option>
+                                        <option value="2013" @if ($data->years == '2013') selected @endif>2013
+                                        </option>
+                                        <option value="2012" @if ($data->years == '2012') selected @endif>2012
+                                        </option>
+                                        <option value="2011" @if ($data->years == '2011') selected @endif>2011
+                                        </option>
+                                        <option value="2010" @if ($data->years == '2010') selected @endif>2010
+                                        </option>
+                                        <option value="2009" @if ($data->years == '2009') selected @endif>2009
+                                        </option>
+                                        <option value="2008" @if ($data->years == '2008') selected @endif>2008
+                                        </option>
+                                        <option value="2007" @if ($data->years == '2007') selected @endif>2007
+                                        </option>
+                                        <option value="2006" @if ($data->years == '2006') selected @endif>2006
+                                        </option>
+                                        <option value="2005" @if ($data->years == '2005') selected @endif>2005
+                                        </option>
+                                        <option value="2004" @if ($data->years == '2004') selected @endif>2004
+                                        </option>
+                                        <option value="2003" @if ($data->years == '2003') selected @endif>2003
+                                        </option>
+                                        <option value="2002" @if ($data->years == '2002') selected @endif>2002
+                                        </option>
+                                        <option value="2001" @if ($data->years == '2001') selected @endif>2001
+                                        </option>
+                                        <option value="2000" @if ($data->years == '2000') selected @endif>2000
+                                        </option>
                                     </select>
                                     <span class="text-danger">
                                         @error('modelYear')
@@ -320,11 +348,16 @@
                                     <label for="doors" class="ms-5">Car Doors :*</label>
                                     <select name="Doors" class=" form-control w-35 ms-1" id="Doors">
                                         <option value=""></option>
-                                        <option value="002">2 Doors</option>
-                                        <option value="003">3 Doors</option>
-                                        <option value="004">4 Doors</option>
-                                        <option value="005">5 Doors</option>
-                                        <option value="006">6 Doors</option>
+                                        <option value="002" @if ($data->CarDoor == '002') selected @endif>2 Doors
+                                        </option>
+                                        <option value="003" @if ($data->CarDoor == '003') selected @endif>3 Doors
+                                        </option>
+                                        <option value="004" @if ($data->CarDoor == '004') selected @endif>4 Doors
+                                        </option>
+                                        <option value="005" @if ($data->CarDoor == '005') selected @endif>5 Doors
+                                        </option>
+                                        <option value="006" @if ($data->CarDoor == '006') selected @endif>6 Doors
+                                        </option>
                                     </select>
                                     <span class="text-danger">
                                         @error('Doors')
@@ -339,12 +372,18 @@
                                     <label for="c" class="mb-3 pt-2 ms-5">GearBox :</label>
                                     <select name="GearBox" class="form-control w-35 ms-3" id="c">
                                         <option selected="selected" value=""></option>
-                                        <option value="UNK">Unknown</option>
-                                        <option value="MAN">Manual</option>
-                                        <option value="ATO">Automatic</option>
-                                        <option value="SAT">Semi Automatic</option>
-                                        <option value="CVT">CVT</option>
-                                        <option value="OTH">Other</option>
+                                        <option value="UNK" @if ($data->GearBox == 'UNK') selected @endif>Unknown
+                                        </option>
+                                        <option value="MAN" @if ($data->GearBox == 'MAN') selected @endif>Manual
+                                        </option>
+                                        <option value="ATO" @if ($data->GearBox == 'ATO') selected @endif>
+                                            Automatic</option>
+                                        <option value="SAT" @if ($data->GearBox == 'SAT') selected @endif>Semi
+                                            Automatic</option>
+                                        <option value="CVT" @if ($data->GearBox == 'CVT') selected @endif>CVT
+                                        </option>
+                                        <option value="OTH" @if ($data->GearBox == 'OTH') selected @endif>Other
+                                        </option>
                                     </select>
                                     <span class="text-danger">
                                         @error('GearBox')
@@ -361,12 +400,17 @@
                                 <label for="c" class="pt-2 ms-1 ms-5">Engin Type: *</label>
                                 <select name="engintype" class="form-control w-35 " id="c">
                                     <option selected="selected" value=""></option>
-                                    <option value="PTL">Petrol</option>
-                                    <option value="DSL">Diesel</option>
-                                    <option value="LPG">LPG</option>
-                                    <option value="ELE">Electric</option>
-                                    <option value="HYB">Hybrid</option>
-                                    <option value="OTH">Other</option>
+                                    <option value="PTL"@if ($data->EnginType == 'PTL') selected @endif>Petrol
+                                    </option>
+                                    <option value="DSL" @if ($data->EnginType == 'DSL') selected @endif>Diesel
+                                    </option>
+                                    <option value="LPG" @if ($data->EnginType == 'LPG') selected @endif>LPG</option>
+                                    <option value="ELE" @if ($data->EnginType == 'ELE') selected @endif>Electric
+                                    </option>
+                                    <option value="HYB" @if ($data->EnginType == 'HYB') selected @endif>Hybrid
+                                    </option>
+                                    <option value="OTH" @if ($data->EnginType == 'OTH') selected @endif>Other
+                                    </option>
                                 </select>
                                 <span class="text-danger">
                                     @error('engintype')
@@ -379,25 +423,26 @@
                             <label for="" class="mt-2 ms-5"> CarColour:</label>
                             <select name="colour" class="form-control w-35 ms-1" id="colour">
                                 <option selected="selected" value=""></option>
-                                <option value="BEI">Beige</option>
-                                <option value="BLA">Black</option>
-                                <option value="BLU">Blue</option>
-                                <option value="BRZ">Bronze</option>
-                                <option value="BRO">Brown</option>
-                                <option value="CRE">Cream</option>
-                                <option value="GOL">Gold</option>
-                                <option value="GRN">Green</option>
-                                <option value="GRY">Grey</option>
-                                <option value="MAR">Maroon</option>
-                                <option value="MUL">Multi</option>
-                                <option value="ORA">Orange</option>
-                                <option value="PNK">Pink</option>
-                                <option value="PPL">Purple</option>
-                                <option value="RED">Red</option>
-                                <option value="SIL">Silver</option>
-                                <option value="TUR">Turquoise</option>
-                                <option value="WHI">White</option>
-                                <option value="YEL">Yellow</option>
+                                <option value="BEI" @if ($data->CarColor == 'BEI') selected @endif>Beige</option>
+                                <option value="BLA" @if ($data->CarColor == 'BLA') selected @endif>Black</option>
+                                <option value="BLU" @if ($data->CarColor == 'BLU') selected @endif>Blue</option>
+                                <option value="BRZ" @if ($data->CarColor == 'BRZ') selected @endif>Bronze</option>
+                                <option value="BRO" @if ($data->CarColor == 'BRO') selected @endif>Brown</option>
+                                <option value="CRE" @if ($data->CarColor == 'CRE') selected @endif>Cream</option>
+                                <option value="GOL" @if ($data->CarColor == 'GOL') selected @endif>Gold</option>
+                                <option value="GRN" @if ($data->CarColor == 'GRN') selected @endif>Green</option>
+                                <option value="GRY" @if ($data->CarColor == 'GRY') selected @endif>Grey</option>
+                                <option value="MAR" @if ($data->CarColor == 'MAR') selected @endif>Maroon</option>
+                                <option value="MUL" @if ($data->CarColor == 'MUL') selected @endif>Multi</option>
+                                <option value="ORA" @if ($data->CarColor == 'ORA') selected @endif>Orange</option>
+                                <option value="PNK" @if ($data->CarColor == 'PNK') selected @endif>Pink</option>
+                                <option value="PPL" @if ($data->CarColor == 'PPL') selected @endif>Purple</option>
+                                <option value="RED" @if ($data->CarColor == 'RED') selected @endif>Red</option>
+                                <option value="SIL" @if ($data->CarColor == 'SIL') selected @endif>Silver</option>
+                                <option value="TUR" @if ($data->CarColor == 'TUR') selected @endif>Turquoise
+                                </option>
+                                <option value="WHI" @if ($data->CarColor == 'WHI') selected @endif>White</option>
+                                <option value="YEL" @if ($data->CarColor == 'YEL') selected @endif>Yellow</option>
                             </select>
                             <span class="text-danger">
                                 @error('colour')
@@ -413,9 +458,12 @@
                                 <label for="doors" class=" ms-3"> Engine Pisition :*</label>
                                 <select name="PistonHead" class=" form-control w-35 ms-1" id="Doors">
                                     <option selected="selected" value=""></option>
-                                    <option value="FRO">Front Engined</option>
-                                    <option value="MID">Mid Engined</option>
-                                    <option value="REA">Rear Engined</option>
+                                    <option value="FRO" @if ($data->EngiPosition == 'FRO') selected @endif>Front
+                                        Engined</option>
+                                    <option value="MID" @if ($data->EngiPosition == 'MID') selected @endif>Mid Engined
+                                    </option>
+                                    <option value="REA" @if ($data->EngiPosition == 'REA') selected @endif>Rear Engined
+                                    </option>
 
                                 </select>
                                 <span class="text-danger">
@@ -431,9 +479,12 @@
                                 <label for="c" class="mb-3 pt-2 ms-6">Aspiration : *</label>
                                 <select name="Aspiration" class="form-control w-35 ms-1" id="c">
                                     <option selected="selected" value=""></option>
-                                    <option value="NAT">Normally Aspirated</option>
-                                    <option value="TUR">Turbo</option>
-                                    <option value="SPC">Supercharger</option>
+                                    <option value="NAT"@if ($data->Aspiration == 'NAT') selected @endif>Normally
+                                        Aspirated</option>
+                                    <option value="TUR"@if ($data->Aspiration == 'TUR') selected @endif>Turbo
+                                    </option>
+                                    <option value="SPC" @if ($data->Aspiration == 'SPC') selected @endif>Supercharger
+                                    </option>
                                 </select>
                                 <span class="text-danger">
                                     @error('Aspiration')
@@ -448,7 +499,7 @@
                             <div class="mb-3 positionadjust">
                                 <label class="form-label pt-2 " for="CardName ">Engine size (Litres):</label>
                                 <input type="number" class="form-control w-35 ms-1" id="CardName" placeholder=""
-                                    name="enginesize">
+                                    name="enginesize" value="{{ $data->EngineSize ?? '' }}">
                             </div>
                             <span class="text-danger">
                                 @error('enginesize')
@@ -461,18 +512,25 @@
                                 <label for="CVV" class="form-label pt-3 ms-5">Cylinder Layout: *</label>
                                 <select name="Cylinder" class=" form-control w-35 ms-1 " id="modelYear1">
                                     <option value=""></option>
-                                    <option value="UNK">Unknown</option>
-                                    <option value="003">3 cylinder</option>
-                                    <option value="004">4 cylinder</option>
-                                    <option value="005">5 cylinder</option>
-                                    <option value="006">6 cylinder</option>
-                                    <option value="008">8 cylinder</option>
-                                    <option value="ROT">Rotary</option>
-                                    <option value="V10">V10</option>
-                                    <option value="V12">V12</option>
-                                    <option value="V6">V6</option>
-                                    <option value="V8">V8</option>
-                                    <option value="W12">W12</option>
+                                    <option value="UNK" @if ($data->CylinderLayout == 'UNK') selected @endif>Unknown
+                                    </option>
+                                    <option value="003" @if ($data->CylinderLayout == '003') selected @endif>3 cylinder
+                                    </option>
+                                    <option value="004" @if ($data->CylinderLayout == '004') selected @endif>4 cylinder
+                                    </option>
+                                    <option value="005" @if ($data->CylinderLayout == '005') selected @endif>5 cylinder
+                                    </option>
+                                    <option value="006" @if ($data->CylinderLayout == '006') selected @endif>6 cylinder
+                                    </option>
+                                    <option value="008" @if ($data->CylinderLayout == '008') selected @endif>8 cylinder
+                                    </option>
+                                    <option value="ROT" @if ($data->CylinderLayout == 'ROT') selected @endif>Rotary
+                                    </option>
+                                    <option value="V10" @if ($data->CylinderLayout == 'V10') selected @endif>V10</option>
+                                    <option value="V12" @if ($data->CylinderLayout == 'V12') selected @endif>V12</option>
+                                    <option value="V6" @if ($data->CylinderLayout == 'V6') selected @endif>V6</option>
+                                    <option value="V8" @if ($data->CylinderLayout == 'V8') selected @endif>V8</option>
+                                    <option value="W12" @if ($data->CylinderLayout == 'W12') selected @endif>W12</option>
                                 </select>
                                 <span class="text-danger">
                                     @error('Cylinder')
@@ -487,7 +545,7 @@
                             <div class="mb-3 positionadjust">
                                 <label class="form-label pt-2 " for="CardName ">Fuel Consumption:</label>
                                 <input type="text" class="form-control w-35 ms-1" id="CardName" placeholder=""
-                                    name="FuelConsumption">
+                                    name="FuelConsumption" value="{{ $data->FuelConsumption ?? '' }}">
                                 <span class="text-danger">
                                     @error('FuelConsumption')
                                         {{ $message }}
@@ -500,15 +558,24 @@
                                 <label for="CVV" class="form-label pt-3 ms-6">Cylinder : *</label>
                                 <select name="noCylinder" class=" form-control w-35 ms-3 " id="modelYear1">
                                     <option value=""></option>
-                                    <option value="2">2 Cylinders</option>
-                                    <option value="3">3 Cylinders</option>
-                                    <option value="4">4 Cylinders</option>
-                                    <option value="5">5 Cylinders</option>
-                                    <option value="6">6 Cylinders</option>
-                                    <option value="8">8 Cylinders</option>
-                                    <option value="10">10 Cylinders</option>
-                                    <option value="12">12 Cylinders</option>
-                                    <option value="16">16 Cylinders</option>
+                                    <option value="2"@if ($data->Cylinder == '2') selected @endif>2 Cylinders
+                                    </option>
+                                    <option value="3"@if ($data->Cylinder == '3') selected @endif>3 Cylinders
+                                    </option>
+                                    <option value="4"@if ($data->Cylinder == '4') selected @endif>4 Cylinders
+                                    </option>
+                                    <option value="5"@if ($data->Cylinder == '5') selected @endif>5 Cylinders
+                                    </option>
+                                    <option value="6"@if ($data->Cylinder == '6') selected @endif>6 Cylinders
+                                    </option>
+                                    <option value="8"@if ($data->Cylinder == '7') selected @endif>8 Cylinders
+                                    </option>
+                                    <option value="10"@if ($data->Cylinder == '10') selected @endif>10 Cylinders
+                                    </option>
+                                    <option value="12"@if ($data->Cylinder == '12') selected @endif>12 Cylinders
+                                    </option>
+                                    <option value="16"@if ($data->Cylinder == '16') selected @endif>16 Cylinders
+                                    </option>
                                 </select>
                                 <span class="text-danger">
                                     @error('noCylinder')
@@ -523,7 +590,7 @@
                             <div class="mb-3 positionadjust">
                                 <label class="form-label pt-2 ms-5" for="CardName ">Health:</label>
                                 <input type="text" class="form-control w-35 ms-1" id="CardName" placeholder=""
-                                    name="Health">
+                                    name="Health" value="{{ $data->Health ?? '' }}">
                                 <span class="text-danger">
                                     @error('Health')
                                         {{ $message }}
@@ -535,7 +602,7 @@
                             <div class="mb-3 positionadjust">
                                 <label class="form-label pt-2 ms-5" for="CardName ">Top speed (mph):</label>
                                 <input type="number" class="form-control w-35 ms-1" id="CardName" placeholder=""
-                                    name="topspeed">
+                                    name="topspeed" value="{{ $data->TopSpeed ?? '' }}">
                                 <span class="text-danger">
                                     @error('topspeed')
                                         {{ $message }}
@@ -550,15 +617,23 @@
                                 <label class="form-label pt-2 ms-4" for="CardName ">Driven wheels:</label>
                                 <select name="Drivenwheels" class=" form-control w-35 ms-2 " id="modelYear1">
                                     <option value=""></option>
-                                    <option value="FRO">Front Wheel Drive</option>
-                                    <option value="REA">Rear Wheel Drive</option>
-                                    <option value="ALP">All Wheel Drive - Permanent</option>
-                                    <option value="ALS">All Wheel Drive - Selected</option>
-                                    <option value="LFR">Lifting Rear</option>
-                                    <option value="MID">Middle</option>
-                                    <option value="NAN">Na</option>
-                                    <option value="PUS">Pusher</option>
-                                    <option value="TWS">Twin Steer</option>
+                                    <option value="FRO"@if ($data->DrivenWheels == 'FRO') selected @endif>Front Wheel
+                                        Drive</option>
+                                    <option value="REA" @if ($data->DrivenWheels == 'REA') selected @endif>Rear Wheel
+                                        Drive</option>
+                                    <option value="ALP"@if ($data->DrivenWheels == 'ALP') selected @endif>All Wheel
+                                        Drive - Permanent</option>
+                                    <option value="ALS" @if ($data->DrivenWheels == 'ALS') selected @endif>All Wheel
+                                        Drive - Selected</option>
+                                    <option value="LFR" @if ($data->DrivenWheels == 'LFR') selected @endif>Lifting Rear
+                                    </option>
+                                    <option value="MID" @if ($data->DrivenWheels == 'MID') selected @endif>Middle
+                                    </option>
+                                    <option value="NAN" @if ($data->DrivenWheels == 'NAN') selected @endif>Na</option>
+                                    <option value="PUS" @if ($data->DrivenWheels == 'PUS') selected @endif>Pusher
+                                    </option>
+                                    <option value="TWS" @if ($data->DrivenWheels == 'TWS') selected @endif>Twin Steer
+                                    </option>
                                 </select>
                                 <span class="text-danger">
                                     @error('Drivenwheels')
@@ -572,13 +647,20 @@
                                 <label for="CVV" class="form-label pt-3 ms-6">Owners : *</label>
                                 <select name="Owners" class=" form-control w-35 ms-4 " id="modelYear1">
                                     <option value=""></option>
-                                    <option value="1">1 Owner</option>
-                                    <option value="2">2 Owners</option>
-                                    <option value="3">3 Owners</option>
-                                    <option value="4">4 Owners</option>
-                                    <option value="5">5 Owners</option>
-                                    <option value="6">6 Owners</option>
-                                    <option value="7">7 or more Owners</option>
+                                    <option value="1"@if ($data->Owners == '1') selected @endif>1 Owner
+                                    </option>
+                                    <option value="2" @if ($data->Owners == '2') selected @endif>2 Owners
+                                    </option>
+                                    <option value="3" @if ($data->Owners == '3') selected @endif>3 Owners
+                                    </option>
+                                    <option value="4" @if ($data->Owners == '4') selected @endif>4 Owners
+                                    </option>
+                                    <option value="5" @if ($data->Owners == '5') selected @endif>5 Owners
+                                    </option>
+                                    <option value="6" @if ($data->Owners == '6') selected @endif>6 Owners
+                                    </option>
+                                    <option value="7" @if ($data->Owners == '7') selected @endif>7 or more
+                                        Owners</option>
                                 </select>
                                 <span class="text-danger">
                                     @error('Owners')
@@ -607,7 +689,7 @@
                                 <div class="mb-3 positionadjust">
                                     <label class="form-label pt-2 ms-4" for="valid">1st Name :*</label>
                                     <input type="text" class="form-control w-35 ms-4" id="fullname"
-                                        placeholder="i.e John" name="fullname">
+                                        placeholder="i.e John" name="fullname" value="{{ $data->Fname ?? '' }}">
                                     <span class="text-danger">
                                         @error('fullname')
                                             {{ $message }}
@@ -619,7 +701,7 @@
                                 <div class="mb-3 positionadjust">
                                     <label class="form-label pt-2 ms-4" for="valid">2nd Name :*</label>
                                     <input type="text" class="form-control w-35 ms-4" id="fullname"
-                                        placeholder="i.e Doe" name="lastname">
+                                        placeholder="i.e Doe" name="lastname" value="{{ $data->Lname ?? '' }}">
                                     <span class="text-danger">
                                         @error('lastname')
                                             {{ $message }}
@@ -633,7 +715,7 @@
                                         <label class="form-label pt-2 ms-4" for="valid">Address 1:*</label>
                                         <input type="text" class="form-control w-75 ms-4 pt-2" id="fullname"
                                             placeholder="alfalah town  ,    badien road  ,    Lahore   , PUNJAB"
-                                            name="address1">
+                                            name="address1" value="{{ $data->Address1 ?? '' }}">
                                         <span class="text-danger">
                                             @error('address1')
                                                 {{ $message }}
@@ -648,7 +730,7 @@
                                         <label class="form-label pt-2 ms-4" for="valid">Address 2:*</label>
                                         <input type="text" class="form-control w-75 ms-4 pt-2" id="fullname"
                                             placeholder="Narang mandi   ,     dara ashraf   ,    Narowall    ,  Punjab   "
-                                            name="address2">
+                                            name="address2" value="{{ $data->Address2 ?? '' }}">
                                         <span class="text-danger">
                                             @error('address2')
                                                 {{ $message }}
@@ -662,12 +744,18 @@
                                     <div class="mb-3 positionadjust">
                                         <label class="form-label pt-2 ms-4 " for="valid">Town / City :*</label>
                                         <select name="town" class="form-control w-35 ms-2" id="c">
-                                            <option value="AF">Lahore</option>
-                                            <option value="AR">Karachi</option>
-                                            <option value="AU">Islamabad</option>
-                                            <option value="AT">Peshawar</option>
-                                            <option value="BE">Quetta</option>
-                                            <option value="BR">Multan</option>
+                                            <option value="AF" @if ($data->City == 'AF') selected @endif>
+                                                Lahore</option>
+                                            <option value="AR"@if ($data->City == 'AR') selected @endif>
+                                                Karachi</option>
+                                            <option value="AU"@if ($data->City == 'AU') selected @endif>
+                                                Islamabad</option>
+                                            <option value="AT"@if ($data->City == 'AT') selected @endif>
+                                                Peshawar</option>
+                                            <option value="BE"@if ($data->City == 'BE') selected @endif>
+                                                Quetta</option>
+                                            <option value="BR"@if ($data->City == 'BR') selected @endif>
+                                                Multan</option>
                                         </select>
                                         <span class="text-danger">
                                             @error('town')
@@ -681,73 +769,140 @@
                                         <label class="form-label pt-2 ms-5 pt-3" for="valid">County /
                                             State:*</label>
                                         <select name="country" class="form-control w-35 ms-2" id="c">
-                                            <option value="AF">Afghanistan</option>
-                                            <option value="AR">Argentina</option>
-                                            <option value="AU">Australia</option>
-                                            <option value="AT">Austria</option>
-                                            <option value="BE">Belgium</option>
-                                            <option value="BR">Brazil</option>
-                                            <option value="BG">Bulgaria</option>
-                                            <option value="CA">Canada</option>
-                                            <option value="CL">Chile</option>
-                                            <option value="CN">China</option>
-                                            <option value="CO">Colombia</option>
-                                            <option value="CR">Costa Rica</option>
-                                            <option value="HR">Croatia</option>
-                                            <option value="CY">Cyprus</option>
-                                            <option value="CZ">Czech Republic</option>
-                                            <option value="DK">Denmark</option>
-                                            <option value="FI">Finland</option>
-                                            <option value="FR">France</option>
-                                            <option value="DE">Germany</option>
-                                            <option value="GI">Gibraltar</option>
-                                            <option value="GR">Greece</option>
-                                            <option value="HK">Hong Kong</option>
-                                            <option value="HU">Hungary</option>
-                                            <option value="IS">Iceland</option>
-                                            <option value="IN">India</option>
-                                            <option value="ID">Indonesia</option>
-                                            <option value="IE">Ireland</option>
-                                            <option value="IL">Israel</option>
-                                            <option value="IT">Italy</option>
-                                            <option value="JP">Japan</option>
-                                            <option value="JO">Jordan</option>
-                                            <option value="KR">Korea, Republic of</option>
-                                            <option value="LB">Lebanon</option>
-                                            <option value="LT">Lithuania</option>
-                                            <option value="LU">Luxembourg</option>
-                                            <option value="MY">Malaysia</option>
-                                            <option value="MT">Malta</option>
-                                            <option value="MX">Mexico</option>
-                                            <option value="MC">Monaco</option>
-                                            <option value="NL">Netherlands</option>
-                                            <option value="NZ">New Zealand</option>
-                                            <option value="NO">Norway</option>
-                                            <option value="OT">Other</option>
-                                            <option selected="selected" value="PK">Pakistan</option>
-                                            <option value="PE">Peru</option>
-                                            <option value="PH">Philippines</option>
-                                            <option value="PL">Poland</option>
-                                            <option value="PT">Portugal</option>
-                                            <option value="PR">Puerto Rico</option>
-                                            <option value="RO">Romania</option>
-                                            <option value="RU">Russian Federation</option>
-                                            <option value="SA">Saudi Arabia</option>
-                                            <option value="SG">Singapore</option>
-                                            <option value="SI">Slovenia</option>
-                                            <option value="ZA">South Africa</option>
-                                            <option value="ES">Spain</option>
-                                            <option value="SE">Sweden</option>
-                                            <option value="CH">Switzerland</option>
-                                            <option value="TW">Taiwan</option>
-                                            <option value="TH">Thailand</option>
-                                            <option value="TR">Turkey</option>
-                                            <option value="UA">Ukraine</option>
-                                            <option value="AE">United Arab Emirates</option>
-                                            <option value="US">United States</option>
-                                            <option value="UY">Uruguay</option>
-                                            <option value="VE">Venezuela</option>
-                                            <option value="YU">Yugoslavia</option>
+                                            <option value="AF" @if ($data->County == 'AF') selected @endif>
+                                                Afghanistan</option>
+                                            <option value="AR" @if ($data->County == 'AR') selected @endif>
+                                                Argentina</option>
+                                            <option value="AU" @if ($data->County == 'AU') selected @endif>
+                                                Australia</option>
+                                            <option value="AT" @if ($data->County == 'AT') selected @endif>
+                                                Austria</option>
+                                            <option value="BE" @if ($data->County == 'BE') selected @endif>
+                                                Belgium</option>
+                                            <option value="BR" @if ($data->County == 'BR') selected @endif>
+                                                Brazil</option>
+                                            <option value="BG" @if ($data->County == 'BG') selected @endif>
+                                                Bulgaria</option>
+                                            <option value="CA" @if ($data->County == 'CA') selected @endif>
+                                                Canada</option>
+                                            <option value="CL" @if ($data->County == 'CL') selected @endif>
+                                                Chile</option>
+                                            <option value="CN" @if ($data->County == 'CN') selected @endif>
+                                                China</option>
+                                            <option value="CO" @if ($data->County == 'CO') selected @endif>
+                                                Colombia</option>
+                                            <option value="CR" @if ($data->County == 'CR') selected @endif>
+                                                Costa Rica</option>
+                                            <option value="HR" @if ($data->County == 'HR') selected @endif>
+                                                Croatia</option>
+                                            <option value="CY" @if ($data->County == 'CY') selected @endif>
+                                                Cyprus</option>
+                                            <option value="CZ" @if ($data->County == 'CZ') selected @endif>
+                                                Czech Republic</option>
+                                            <option value="DK" @if ($data->County == 'DK') selected @endif>
+                                                Denmark</option>
+                                            <option value="FI" @if ($data->County == 'FI') selected @endif>
+                                                Finland</option>
+                                            <option value="FR" @if ($data->County == 'FR') selected @endif>
+                                                France</option>
+                                            <option value="DE" @if ($data->County == 'DE') selected @endif>
+                                                Germany</option>
+                                            <option value="GI" @if ($data->County == 'GI') selected @endif>
+                                                Gibraltar</option>
+                                            <option value="GR" @if ($data->County == 'GR') selected @endif>
+                                                Greece</option>
+                                            <option value="HK" @if ($data->County == 'HK') selected @endif>
+                                                Hong Kong</option>
+                                            <option value="HU" @if ($data->County == 'HU') selected @endif>
+                                                Hungary</option>
+                                            <option value="IS" @if ($data->County == 'IS') selected @endif>
+                                                Iceland</option>
+                                            <option value="IN" @if ($data->County == 'IN') selected @endif>
+                                                India</option>
+                                            <option value="ID" @if ($data->County == 'ID') selected @endif>
+                                                Indonesia</option>
+                                            <option value="IE" @if ($data->County == 'IE') selected @endif>
+                                                Ireland</option>
+                                            <option value="IL" @if ($data->County == 'IL') selected @endif>
+                                                Israel</option>
+                                            <option value="IT" @if ($data->County == 'IT') selected @endif>
+                                                Italy</option>
+                                            <option value="JP" @if ($data->County == 'JP') selected @endif>
+                                                Japan</option>
+                                            <option value="JO" @if ($data->County == 'JO') selected @endif>
+                                                Jordan</option>
+                                            <option value="KR" @if ($data->County == 'KR') selected @endif>
+                                                Korea, Republic of</option>
+                                            <option value="LB" @if ($data->County == 'LB') selected @endif>
+                                                Lebanon</option>
+                                            <option value="LT" @if ($data->County == 'LT') selected @endif>
+                                                Lithuania</option>
+                                            <option value="LU" @if ($data->County == 'LU') selected @endif>
+                                                Luxembourg</option>
+                                            <option value="MY" @if ($data->County == 'MY') selected @endif>
+                                                Malaysia</option>
+                                            <option value="MT" @if ($data->County == 'MT') selected @endif>
+                                                Malta</option>
+                                            <option value="MX" @if ($data->County == 'MX') selected @endif>
+                                                Mexico</option>
+                                            <option value="MC" @if ($data->County == 'MC') selected @endif>
+                                                Monaco</option>
+                                            <option value="NL" @if ($data->County == 'NL') selected @endif>
+                                                Netherlands</option>
+                                            <option value="NZ" @if ($data->County == 'NZ') selected @endif>
+                                                New Zealand</option>
+                                            <option value="NO" @if ($data->County == 'NO') selected @endif>
+                                                Norway</option>
+                                            <option value="OT" @if ($data->County == 'OT') selected @endif>
+                                                Other</option>
+                                            <option value="PK" @if ($data->County == 'PK') selected @endif>
+                                                Pakistan</option>
+                                            <option value="PE" @if ($data->County == 'PE') selected @endif>
+                                                Peru</option>
+                                            <option value="PH" @if ($data->County == 'PH') selected @endif>
+                                                Philippines</option>
+                                            <option value="PL" @if ($data->County == 'PL') selected @endif>
+                                                Poland</option>
+                                            <option value="PT" @if ($data->County == 'PT') selected @endif>
+                                                Portugal</option>
+                                            <option value="PR" @if ($data->County == 'PR') selected @endif>
+                                                Puerto Rico</option>
+                                            <option value="RO" @if ($data->County == 'RO') selected @endif>
+                                                Romania</option>
+                                            <option value="RU" @if ($data->County == 'RU') selected @endif>
+                                                Russian Federation</option>
+                                            <option value="SA" @if ($data->County == 'SA') selected @endif>
+                                                Saudi Arabia</option>
+                                            <option value="SG" @if ($data->County == 'SG') selected @endif>
+                                                Singapore</option>
+                                            <option value="SI" @if ($data->County == 'SI') selected @endif>
+                                                Slovenia</option>
+                                            <option value="ZA" @if ($data->County == 'ZA') selected @endif>
+                                                South Africa</option>
+                                            <option value="ES" @if ($data->County == 'ES') selected @endif>
+                                                Spain</option>
+                                            <option value="SE" @if ($data->County == 'SE') selected @endif>
+                                                Sweden</option>
+                                            <option value="CH" @if ($data->County == 'CH') selected @endif>
+                                                Switzerland</option>
+                                            <option value="TW" @if ($data->County == 'TW') selected @endif>
+                                                Taiwan</option>
+                                            <option value="TH" @if ($data->County == 'TH') selected @endif>
+                                                Thailand</option>
+                                            <option value="TR" @if ($data->County == 'TR') selected @endif>
+                                                Turkey</option>
+                                            <option value="UA" @if ($data->County == 'UA') selected @endif>
+                                                Ukraine</option>
+                                            <option value="AE" @if ($data->County == 'AE') selected @endif>
+                                                United Arab Emirates</option>
+                                            <option value="US" @if ($data->County == 'US') selected @endif>
+                                                United States</option>
+                                            <option value="UY" @if ($data->County == 'UY') selected @endif>
+                                                Uruguay</option>
+                                            <option value="VE" @if ($data->County == 'VE') selected @endif>
+                                                Venezuela</option>
+                                            <option value="YU" @if ($data->County == 'YU') selected @endif>
+                                                Yugoslavia</option>
                                         </select>
                                         <span class="text-danger">
                                             @error('country')
@@ -761,7 +916,7 @@
                                         <div class="mb-3 positionadjust">
                                             <label class="form-label pt-2 ms-4" for="valid">Postcode :*</label>
                                             <input type="number" class="form-control w-35 ms-4" id="fullname"
-                                                placeholder="" name="Postcode">
+                                                placeholder="" name="Postcode" value="{{ $data->Postcode ?? '' }}">
                                             <span class="text-danger">
                                                 @error('CarName')
                                                     {{ $message }}
@@ -774,7 +929,8 @@
                                             <label class="form-label pt-2 ms-4" for="valid">Telephone Number
                                                 :*</label>
                                             <input type="number" class="form-control w-35 ms-1" id="fullname"
-                                                placeholder="+923480332899" name="Telephone">
+                                                placeholder="+923480332899" name="Telephone"
+                                                value="{{ $data->Telephone ?? '' }}">
                                             <span class="text-danger">
                                                 @error('Telephone')
                                                     {{ $message }}
@@ -805,14 +961,131 @@
                                     <h4 class="card-title">Upload Your Car Images</h4>
                                     <div id="row_field">
                                         <div class="row">
-                                            <div class="col-md-8">
-                                                <input type="file" class="form-control" name="image1"
-                                                    multiple="">
-                                            </div>
-                                            <div class="col">
-                                                <a class="btn btn-success addthepic">ADD</a>
-                                                <button class="btn btn-danger remove">Remove</button>
-                                            </div>
+                                            @if ($data && $data->image1)
+                                                <div class="col-md-8">
+                                                    <img src="{{ asset($data->image1) }}" width="150px" height="100px"
+                                                        alt="">
+
+                                                    <input type="file" class="form-control" name="image1"
+                                                        multiple="">
+
+                                                    <div class="col">
+                                                        <a class="btn btn-success addthepic">ADD</a>
+                                                        <button class="btn btn-danger remove">Remove</button>
+                                                    </div>
+                                            @endif
+                                            @if ($data && $data->image2)
+                                                <div class="col-md-8">
+                                                    <img src="{{ asset($data->image2) }}" width="150px" height="100px"
+                                                        alt="">
+
+                                                    <input type="file" class="form-control" name="image2"
+                                                        multiple="">
+
+                                                </div>
+                                                <div class="col">
+                                                    <a class="btn btn-success addthepic">ADD</a>
+                                                    <button class="btn btn-danger remove">Remove</button>
+                                                </div>
+                                            @endif
+                                            @if ($data && $data->image3)
+                                                <div class="col-md-8">
+                                                    <img src="{{ asset($data->image3) }}" width="150px" height="100px"
+                                                        alt="">
+
+                                                    <input type="file" class="form-control" name="image3"
+                                                        multiple="">
+
+                                                </div>
+                                                <div class="col">
+                                                    <a class="btn btn-success addthepic">ADD</a>
+                                                    <button class="btn btn-danger remove">Remove</button>
+                                                </div>
+                                            @endif
+                                            @if ($data && $data->image4)
+                                                <div class="col-md-8">
+                                                    <img src="{{ asset($data->image4) }}" width="150px" height="100px"
+                                                        alt="">
+
+                                                    <input type="file" class="form-control" name="image4"
+                                                        multiple="">
+
+                                                </div>
+                                                <div class="col">
+                                                    <a class="btn btn-success addthepic">ADD</a>
+                                                    <button class="btn btn-danger remove">Remove</button>
+                                                </div>
+                                            @endif
+                                            @if ($data && $data->image5)
+                                                <div class="col-md-8">
+                                                    <img src="{{ asset($data->image5) }}" width="150px" height="100px"
+                                                        alt="">
+
+                                                    <input type="file" class="form-control" name="image5"
+                                                        multiple="">
+
+                                                </div>
+                                                <div class="col">
+                                                    <a class="btn btn-success addthepic">ADD</a>
+                                                    <button class="btn btn-danger remove">Remove</button>
+                                                </div>
+                                            @endif
+                                            @if ($data && $data->image6)
+                                                <div class="col-md-8">
+                                                    <img src="{{ asset($data->image6) }}" width="150px" height="100px"
+                                                        alt="">
+
+                                                    <input type="file" class="form-control" name="image6"
+                                                        multiple="">
+
+                                                </div>
+                                                <div class="col">
+                                                    <a class="btn btn-success addthepic">ADD</a>
+                                                    <button class="btn btn-danger remove">Remove</button>
+                                                </div>
+                                            @endif
+                                            @if ($data && $data->image7)
+                                                <div class="col-md-8">
+                                                    <img src="{{ asset($data->image7) }}" width="150px" height="100px"
+                                                        alt="">
+
+                                                    <input type="file" class="form-control" name="image7"
+                                                        multiple="">
+
+                                                </div>
+                                                <div class="col">
+                                                    <a class="btn btn-success addthepic">ADD</a>
+                                                    <button class="btn btn-danger remove">Remove</button>
+                                                </div>
+                                            @endif
+                                            @if ($data && $data->image8)
+                                                <div class="col-md-8">
+                                                    <img src="{{ asset($data->image8) }}" width="150px" height="100px"
+                                                        alt="">
+
+                                                    <input type="file" class="form-control" name="image8"
+                                                        multiple="">
+
+                                                </div>
+                                                <div class="col">
+                                                    <a class="btn btn-success addthepic">ADD</a>
+                                                    <button class="btn btn-danger remove">Remove</button>
+                                                </div>
+                                            @endif
+                                            @if ($data && $data->image9)
+                                                <div class="col-md-8">
+                                                    <img src="{{ asset($data->image9) }}" width="150px" height="100px"
+                                                        alt="">
+
+                                                    <input type="file" class="form-control" name="image9"
+                                                        multiple="">
+
+                                                </div>
+                                                <div class="col">
+                                                    <a class="btn btn-success addthepic">ADD</a>
+                                                    <button class="btn btn-danger remove">Remove</button>
+                                                </div>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>
@@ -863,8 +1136,12 @@
     </script>
     <script type="text/javascript">
         $(document).ready(function() {
-            var i = 1;
 
+            var total_images = $('input[type=file]');
+            var i = 0;
+            if (total_images.length() > 0) {
+                i = total_images.length();
+            }
             // Add a new file input field
             $('.addthepic').click(function() {
                 if (i < 9) {

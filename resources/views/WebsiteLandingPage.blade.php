@@ -67,7 +67,7 @@
         <div class="scrollable-row" style="width: 100%; overflow-x: auto; white-space: nowrap;">
             <div class="row">
                 @foreach ($data as $item)
-                    <div class="col-2">
+                    {{-- <div class="col-2">
                         <div class="card text-start clas" style="display: inline-block; margin-right: 10px;">
                             <img class="card-img-top" width="100px" height="100px" src="{{ $item->image1 }}"
                                 alt="Car Image">
@@ -82,8 +82,26 @@
                                 </div>
                             </div>
                         </div>
+                    </div> --}}
+                    <div class="col-3">
+                        <div class="card text-start">
+                            <img class="card-img-top" width="100px" height="100px" src="{{ $item->image1 }}"
+                                alt="Car Image">
+                            <div class="card-body">
+                                <h4 class="card-title">{{ $item->CarName }}</h4>
+                                <p class="card-text">Price: {{ $item->CarPrice }}</p>
+                                <p class="card-text">Mileage: {{ $item->CarMilage }}</p>
+                                <p class="card-text">Condition: Used</p>
+                                <div class="text-center">
+                                    <a href="{{ route('postadd', ['id' => $item->id]) }}" class="btn btn-danger">View
+                                        Details</a>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                 @endforeach
+
             </div>
         </div>
 
