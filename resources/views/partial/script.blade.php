@@ -23,7 +23,7 @@ integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6
                         icon: 'error',
                         title: 'Oops...',
                         text: errorMassage,
-                        confirmButtonText: "@lang('dashboard.OK')",
+                        confirmButtonText: "OK",
                     })
                 }
 
@@ -31,9 +31,9 @@ integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6
                 if (successMassage) {
                     Swal.fire({
                         icon: 'success',
-                        title: "@lang('dashboard.Saved')",
+                        title: "Saved",
                         text: successMassage,
-                        confirmButtonText: "@lang('dashboard.OK')",
+                        confirmButtonText: "OK",
                     })
                 }
             });

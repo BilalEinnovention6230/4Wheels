@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ModelCarRegistration;
 use App\Models\profileModel;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\Models\ModelCarRegistration;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class CarRegistration extends Controller
 {
@@ -72,37 +73,43 @@ class CarRegistration extends Controller
 
     public function bookingcreated(Request $req)
     {
-        // $req->validate([
-        //     'carRegistratoin' => 'required',
-        //     'CarName' => 'required',
-        //     'askingprice' => 'required|numeric',
-        //     'description' => 'required',
-        //     'partexchange' => 'required|',
-        //     'Milage' => 'required',
-        //     'modelYear' => 'required|numeric',
-        //     'Doors' => 'required',
-        //     'GearBox' => 'required',
-        //     'engintype' => 'required',
-        //     'colour' => 'required',
-        //     'PistonHead' => 'required',
-        //     'Aspiration' => 'required',
-        //     'enginesize' => 'required',
-        //     'Cylinder' => 'required',
-        //     'FuelConsumption' => 'required',
-        //     'Health' => 'required',
-        //     'noCylinder' => 'required',
-        //     'Owners' => 'required',
-        //     'topspeed' => 'required|numeric',
-        //     'Drivenwheels' => 'required',
-        //     'fullname' => 'required',
-        //     'lastname' => 'required',
-        //     'address1' => 'required',
-        //     'address2' => 'required',
-        //     'town' => 'required',
-        //     'country' => 'required',
-        //     'Postcode' => 'required|numeric|digits:6',
-        //     'Telephone' => 'required|numeric|digits:11',
-        // ]);
+        $validator = Validator::make($req->all(),[
+            'carRegistratoin' => 'required',
+            'CarName' => 'required',
+            'askingprice' => 'required|numeric',
+            'description' => 'required',
+            'partexchange' => 'required|',
+            'Milage' => 'required',
+            'modelYear' => 'required|numeric',
+            'Doors' => 'required',
+            'GearBox' => 'required',
+            'engintype' => 'required',
+            'colour' => 'required',
+            'PistonHead' => 'required',
+            'Aspiration' => 'required',
+            'enginesize' => 'required',
+            'Cylinder' => 'required',
+            'FuelConsumption' => 'required',
+            'Health' => 'required',
+            'noCylinder' => 'required',
+            'Owners' => 'required',
+            'topspeed' => 'required|numeric',
+            'Drivenwheels' => 'required',
+            'fullname' => 'required',
+            'lastname' => 'required',
+            'address1' => 'required',
+            'address2' => 'required',
+            'town' => 'required',
+            'country' => 'required',
+            'Postcode' => 'required|numeric|digits:6',
+            'Telephone' => 'required|numeric|digits:11',
+        ]);
+        if ($validator->fails()) {
+            return redirect()
+                ->back()
+                ->withErrors($validator)
+                ->withInput();
+        }
         $data = new ModelCarRegistration;
         $data->RegistrrationNumber = $req->carRegistratoin;
         $data->CarName = $req->CarName;
@@ -133,16 +140,6 @@ class CarRegistration extends Controller
         $data->County = $req->country;
         $data->PostCode = $req->Postcode;
         $data->TelephoneNumber = $req->Telephone;
-        // $req->validate([
-        //     'image' => 'required|image|mimes:png,jpg,jpeg|max:2048'
-        // ]);
-
-        // $imageName = time().'.'.$req->image->extension();
-
-        // // Public Folder
-        // $image = $req->image->move(public_path('images'), $imageName);
-        // $relativeImagePath = str_replace(public_path(), '', $image);
-        // $data->image1= $relativeImagePath;
         $data->save();
         $imageFields = [];
         for ($i = 1; $i <= 9; $i++) {
@@ -154,29 +151,20 @@ class CarRegistration extends Controller
                 $data->update(["image$i"=>$imageFields["image$i"]]);
             }
         }
-
-        $profile = new profileModel;
-        $profile->email =auth()->user()->email;
-        $profile->userid =auth()->user()->id;
-        $profile->recordid =$data->id;
-        $profile->tablename = "car registration";
-        $profile->save();
-        // if (auth()->check()) {
-        //     $userId = auth()->user()->id;
-        //     $userEmail = auth()->user()->email;
-
-        //     // Rest of your controller logic...
-        // } else {
-        //     dd("noid");
-        //     // User is not authenticated, handle accordingly...
-        // }
-        // dd($profile);
-        // dd($data);
-        return redirect()->back();
+        if (auth()->check()) {
+            $profile = new profileModel;
+            $profile->email =auth()->user()->email;
+            $profile->userid =auth()->user()->id;
+            $profile->recordid =$data->id;
+            $profile->tablename = "car registration";
+            $profile->save();
+        } else {
+            return redirect()->back()->with('error','Your Are Not Login');
+        }
+        return redirect()->route('car_buy')->with('success','Car post is Created Successfully ');
 
     }
 
-    //Filters
 
     public function carname(Request $req)
     {
