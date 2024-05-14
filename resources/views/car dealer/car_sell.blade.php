@@ -7,8 +7,8 @@
         }
 
         /* .prev {
-                float: left
-            } */
+                            float: left
+                        } */
 
         .content__title {
             font-size: 20px;
@@ -800,30 +800,28 @@
                 <div class="multisteps-form__panel   p-4 pt-6 rounded bg-white" data-animation="scaleIn">
                     <div class="multisteps-form__content">
                         <div class="container">
-                            <div class="row" style="padding-left:50px">
-                                    <div class="col-8">
-                                        <div class="mb-3 mx-6">
-                                            <div id="row_field">
-                                                <div class="row">
-                                                    <h1>Upload Your Car Images</h1>
-                                                    <div class="col-md-8">
-                                                        <input type="file" class="form-control" name="image1"
-                                                            multiple="">
-                                                    </div>
-                                                    <div class="col">
-                                                        <a class="btn btn-success addthepic">ADD</a>
-                                                        <button class="btn btn-danger remove">Remove</button>
-                                                    </div>
-                                                </div>
+                            <div class="card text-start p-5">
+                                <div class="card-body">
+                                    <h4 class="card-title">Upload Your Car Images</h4>
+                                    <div id="row_field">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <input type="file" class="form-control" name="image1"
+                                                    multiple="">
+                                            </div>
+                                            <div class="col">
+                                                <a class="btn btn-success addthepic">ADD</a>
+                                                <button class="btn btn-danger remove">Remove</button>
                                             </div>
                                         </div>
+                                    </div>
                                 </div>
-                                <div class=" mt-4 text-center">
-                                    <button class="btn  btn-danger js-btn-prev prev" type="button"
-                                        title="Prev">Prev</button>
-                                    <button class="btn  btn-danger ml-auto ms-2" type="submit"
-                                        title="Next">Submit</button>
-                                </div>
+                            </div>
+                            <div class=" mt-4 text-center">
+                                <button class="btn  btn-danger js-btn-prev prev" type="button"
+                                    title="Prev">Prev</button>
+                                <button class="btn  btn-danger ml-auto ms-2" type="submit"
+                                    title="Next">Submit</button>
                             </div>
                         </div>
                     </div>

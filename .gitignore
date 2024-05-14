@@ -1,11 +1,11 @@
 /.phpunit.cache
 /node_modules
 /public/build
-/public/css
+# /public/css
 /public/font
 /public/hot
 /public/images
-/resources/css
+# /resources/css
 /public/storage
 /storage/*.key
 /vendor

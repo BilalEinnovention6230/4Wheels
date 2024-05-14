@@ -77,7 +77,8 @@
                                 <p class="card-text">Mileage: {{ $item->CarMilage }}</p>
                                 <p class="card-text">Condition: Used</p>
                                 <div class="text-center">
-                                    <a href="#" class="btn btn-danger">View Details</a>
+                                    <a href="{{ route('postadd', ['id' => $item->id]) }}" class="btn btn-danger">View
+                                        Details</a>
                                 </div>
                             </div>
                         </div>

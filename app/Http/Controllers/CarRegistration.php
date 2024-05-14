@@ -52,7 +52,7 @@ class CarRegistration extends Controller
         }
         $advertisement->save();
 
-        dd($advertisement);
+        // dd($advertisement);
 
         // dd($request->all());
 
@@ -151,9 +151,9 @@ class CarRegistration extends Controller
                 $relativeImagePath = "images/$imageName";
                 $req->file("image$i")->move(public_path('images'), $imageName);
                 $imageFields["image$i"] = $relativeImagePath;
+                $data->update(["image$i"=>$imageFields["image$i"]]);
             }
         }
-        $data->update($imageFields);
 
         $profile = new profileModel;
         $profile->email =auth()->user()->email;
