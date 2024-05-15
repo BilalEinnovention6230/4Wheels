@@ -45,16 +45,20 @@
                 </li>
             </ul>
         </nav>
-        <div class="content">
-            <h1>4Wheels</h1>
-            <div class="d-flex btnmodule">
-                <a href="{{ route('car_buy') }}" class="btn btn-outline-light fw-bold mx-2 ms-4"
-                    style="color: black">Find a Car</a>
-                <a href="{{ route('CarSell') }}" class="btn btn-outline-light fw-bold mx-2" style="color: black">Sell
-                    Your Car</a>
-                <a href="Insurance" class="btn btn-outline-light fw-bold mx-2" style="color: black">Get Insurance</a>
-                <a href="Maintanance" class="btn btn-outline-light fw-bold mx-2" style="color: black">Book
-                    Maintenance</a>
+        <div class="content w-100">
+            <div class="text-center">
+                <h1>4Wheels</h1>
+                <div class="d-flex btnmodule">
+                    <a href="{{ route('car_buy') }}" class="btn btn-outline-light fw-bold mx-2 ms-4"
+                        style="color: black">Find a Car</a>
+                    <a href="{{ route('CarSell') }}" class="btn btn-outline-light fw-bold mx-2"
+                        style="color: black">Sell
+                        Your Car</a>
+                    <a href="Insurance" class="btn btn-outline-light fw-bold mx-2" style="color: black">Get
+                        Insurance</a>
+                    <a href="Maintanance" class="btn btn-outline-light fw-bold mx-2" style="color: black">Book
+                        Maintenance</a>
+                </div>
             </div>
         </div>
     </div>

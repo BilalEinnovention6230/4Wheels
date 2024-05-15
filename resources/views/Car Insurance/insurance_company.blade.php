@@ -64,23 +64,13 @@
                                 Motive Line :</strong>
                             <p class=" d-inline-block">{{$item->CompanyTagLine}} </p>
                         </div>
-                        <div class="col-md-3 text-end " style="margin-left: 40px">
-                            {{-- <div class="text-start">
-                                <p class=" fw-bold d-inline-block ms-5">
-                                    <i class="fa-solid fa-money-check-dollar"></i>
-                                    Total :</p>
-                                    <p class="  d-inline-block">Rs 40,000</p>
-                                </div> --}}
-                            </div>
                     </div>
-                    <div class="row mt-7">
-                        <div class="col-md-12">
+                        <div class="col-md-3 mt-3">
                             <a href="{{ url('/insurance_form', $item->id) }}" class="btn btn-primary float-end" style="background-color: #f1b040">Register Your Booking</a>
-                        </div>
-                    </div>
-                </div>
+                        </div>                </div>
             </div>
             @endforeach
         </div>
     </div>
 @endsection
+ 
