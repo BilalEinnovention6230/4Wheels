@@ -120,19 +120,18 @@ Route::get('/postadd/{id}', [CarRegistration::class, 'postadd'])->name('postadd'
 
 Route::get('/Login_form', function () {
     return view('Login&signup\login');
-
 });
 Route::get('/signup_form', function () {
     return view('Login&signup\signup');
+});
+Route::get('/insurance_form/{id}', function ($id) {
+    return view('Car Insurance\insurance_form', ['id' => $id]);
+});
 
-});
-Route::get('/insurance_form', function () {
-    return view('Car Insurance\insurance_form');
-});
 
-Route::get('/insurance_form', function () {
-    return view('Car Insurance\insurance_form');
-});
+// Route::get('/insurance_form', function () {
+//     return view('Car Insurance\insurance_form');
+// });
 Route::get('/insurance_registration', function () {
     return view('Car Insurance\insurance_compnay_register');
 });
