@@ -52,6 +52,7 @@ Route::post('/signup_form', [InstantMaintenaceController::class, 'signup'])->nam
 Route::post('/booking', [CarRegistration::class, 'booking'])->name('booking');
 Route::post('/upload-image', [CarRegistration::class, 'storeImage'])->name('store');
 Route::post('/isurance_company_register', [InsuranceCompanyController::class, 'company_register'])->name('insurance-company-register');
+Route::get('/insurance_form/{id}', [InsuranceCompanyController::class, 'ContactUs']);
 Route::post('/isurance_car_register', [CarInsuranceController::class, 'car_insurance'])->name('car_isurance');
 
 Route::get('/car_buy', [CarRegistration::class, 'car_buy'])->name('car_buy');
@@ -124,9 +125,9 @@ Route::get('/Login_form', function () {
 Route::get('/signup_form', function () {
     return view('Login&signup\signup');
 });
-Route::get('/insurance_form/{id}', function ($id) {
-    return view('Car Insurance\insurance_form', ['id' => $id]);
-});
+// Route::get('/insurance_form/{id}', function ($id) {
+//     return view('Car Insurance\insurance_form', ['id' => $id]);
+// });
 
 
 // Route::get('/insurance_form', function () {

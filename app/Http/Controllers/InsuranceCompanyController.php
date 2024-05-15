@@ -52,6 +52,12 @@ return redirect('Insurance');
         $data= InsuranceCompany::all();
         return view('Car Insurance\insurance_company', compact('data'));
     }
+    public function ContactUs(string $id)
+    {
+        $contactpage= InsuranceCompany::find($id);
+        // return $contactpage;
+        return view('Car Insurance\insurance_contact_us', compact('contactpage'));
+    }
     // public function validation(Request $req)
     // {
     //     $req->validate([
