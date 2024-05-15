@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8 text-center bg-white p-5 rounded shadow-sm border border-danger">
             <div class="d-flex align-items-center justify-content-start mb-4">
-                <img src="{{ $contactpage->logo }}" alt="{{ $contactpage->CompanyName }} Logo" class="img-fluid" style="max-width: 150px;">
+                <img src="{{ $contactpage->UploadLogo }}" alt="{{ $contactpage->CompanyName }} Logo" class="img-fluid" style="max-width: 150px;">
             </div>
             <h1 class="mb-3 text-danger">{{ $contactpage->CompanyName }}</h1>
             <p class="lead mb-4">{{ $contactpage->CompanyTagLine }}</p>
