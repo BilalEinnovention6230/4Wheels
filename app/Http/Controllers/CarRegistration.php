@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\profileModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +18,6 @@ class CarRegistration extends Controller
     {
         $data = ModelCarRegistration::all();
         return view('car dealer/car_buy', compact('data'));
-
     }
     public function storeImage(Request $request)
     {
@@ -73,7 +71,7 @@ class CarRegistration extends Controller
 
     public function bookingcreated(Request $req)
     {
-        $validator = Validator::make($req->all(),[
+        $validator = Validator::make($req->all(), [
             'carRegistratoin' => 'required',
             'CarName' => 'required',
             'askingprice' => 'required|numeric',
@@ -112,7 +110,7 @@ class CarRegistration extends Controller
         }
         $data = new ModelCarRegistration;
         $data->RegistrrationNumber = $req->carRegistratoin;
-        $data->CarName = $req->CarName;
+        $data->CarName = $req->CarName; 
         $data->CarPrice = $req->askingprice;
         $data->cardesc = $req->description;
         $data->PartExchange = $req->partexchange;
@@ -148,21 +146,20 @@ class CarRegistration extends Controller
                 $relativeImagePath = "images/$imageName";
                 $req->file("image$i")->move(public_path('images'), $imageName);
                 $imageFields["image$i"] = $relativeImagePath;
-                $data->update(["image$i"=>$imageFields["image$i"]]);
+                $data->update(["image$i" => $imageFields["image$i"]]);
             }
         }
         if (auth()->check()) {
             $profile = new profileModel;
-            $profile->email =auth()->user()->email;
-            $profile->userid =auth()->user()->id;
-            $profile->recordid =$data->id;
+            $profile->email = auth()->user()->email;
+            $profile->userid = auth()->user()->id;
+            $profile->recordid = $data->id;
             $profile->tablename = "car registration";
             $profile->save();
         } else {
-            return redirect()->back()->with('error','Your Are Not Login');
+            return redirect()->back()->with('error', 'Your Are Not Login');
         }
-        return redirect()->route('car_buy')->with('success','Car post is Created Successfully ');
-
+        return redirect()->route('car_buy')->with('success', 'Car post is Created Successfully ');
     }
 
 
@@ -170,23 +167,32 @@ class CarRegistration extends Controller
     {
         $filter = $req->Car_Name;
         $data = DB::table('car registration')->where('CarName', $filter)->get();
-        // dd($data);
-        return view('car dealer/car_buy', compact('data'));
+        if ($data->count() > 0) {
+            return view('car dealer/car_buy', compact('data'));
+        } else {
+            return redirect()->back()->with('error', 'Sorry, there are no registered cars of tis model');
+        }
     }
 
     public function city(Request $req)
     {
         $filter = $req->cities;
         $data = DB::table('car registration')->where('City', $filter)->get();
-        // dd($data);
-        return view('car dealer/car_buy', compact('data'));
+        if ($data->count() > 0) {
+            return view('car dealer/car_buy', compact('data'));
+        } else {
+            return redirect()->back()->with('error', 'Sorry, there are no registered cars in this city.');
+        }
     }
     public function provinc(Request $req)
     {
         $filter = $req->province;
-        // $data = DB::table('car registration')->where('City', $filter)->get();
-        dd($filter);
-        // return view('car dealer/car_buy', compact('data'));
+        $data = DB::table('car registration')->where('City', $filter)->get();
+        if ($data->count() > 0) {
+            return view('car dealer/car_buy', compact('data'));
+        } else {
+            return redirect()->back()->with('error', 'Sorry, there are no registered cars in this Province.');
+        }
     }
     public function pricerange(Request $req)
     {
@@ -195,10 +201,14 @@ class CarRegistration extends Controller
         $data = DB::table('car registration')
             ->whereBetween('CarPrice', [$filter1, $filter2])
             ->get();
-
-        // dd($data);
-
-        return view('car dealer/car_buy', compact('data'));
+            if($data->count() > 0) 
+            {
+                return view('car dealer/car_buy', compact('data'));
+            }
+            else
+            {
+                return redirect()->back()->with('error', 'Sorry, there are no registered cars in this Price Range.');
+            }
     }
     public function years(Request $req)
     {
@@ -207,10 +217,11 @@ class CarRegistration extends Controller
         $data = DB::table('car registration')
             ->whereBetween('years', [$filter1, $filter2])
             ->get();
-
-        // dd($data);
-
-        return view('car dealer/car_buy', compact('data'));
+        if ($data->count() > 0) {
+            return view('car dealer/car_buy', compact('data'));
+        } else {
+            return redirect()->back()->with('error', 'Sorry, there are no registered cars in this Years.');
+        }
     }
     public function millage(Request $req)
     {
@@ -219,10 +230,11 @@ class CarRegistration extends Controller
         $data = DB::table('car registration')
             ->whereBetween('CarMilage', [$filter1, $filter2])
             ->get();
-
-        // dd($filter2);
-
-        return view('car dealer/car_buy', compact('data'));
+        if ($data->count() > 0) {
+            return view('car dealer/car_buy', compact('data'));
+        } else {
+            return redirect()->back()->with('error', 'Sorry, there are no registered cars in this Milage Range.');
+        }
     }
     public function TransmissionType(Request $req)
     {
@@ -230,10 +242,11 @@ class CarRegistration extends Controller
         $data = DB::table('car registration')
             ->where('GearBox', [$filter1])
             ->get();
-
-        // dd($filter2);
-
-        return view('car dealer/car_buy', compact('data'));
+        if ($data->count() > 0) {
+            return view('car dealer/car_buy', compact('data'));
+        } else {
+            return redirect()->back()->with('error', 'Sorry, there are no registered cars of this transmission');
+        }
     }
     public function colour(Request $req)
     {
@@ -252,21 +265,23 @@ class CarRegistration extends Controller
         $data = DB::table('car registration')
             ->where('EnginType', [$filter1])
             ->get();
-
-        // dd($filter2);
-
-        return view('car dealer/car_buy', compact('data'));
+            if($data->count() > 0) 
+            {
+                return view('car dealer/car_buy', compact('data'));
+            }
+            else
+            {
+                return redirect()->back()->with('error', 'Sorry, there are no registered cars in this Engin Type');
+            }
     }
     public function cardata()
     {
         $data = ModelCarRegistration::all();
         return view('WebsiteLandingPage', compact('data'));
-
     }
     public function postadd($id)
     {
         $data = ModelCarRegistration::findOrFail($id);
         return view('car dealer\PostedAdd_buyCar', compact('data'));
-
     }
 }
