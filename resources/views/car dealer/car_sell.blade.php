@@ -379,25 +379,25 @@
                             <label for="" class="mt-2 ms-5"> CarColour:</label>
                             <select name="colour" class="form-control w-35 ms-1" id="colour">
                                 <option selected="selected" value=""></option>
-                                <option value="BEI">Beige</option>
-                                <option value="BLA">Black</option>
-                                <option value="BLU">Blue</option>
-                                <option value="BRZ">Bronze</option>
-                                <option value="BRO">Brown</option>
-                                <option value="CRE">Cream</option>
-                                <option value="GOL">Gold</option>
-                                <option value="GRN">Green</option>
-                                <option value="GRY">Grey</option>
-                                <option value="MAR">Maroon</option>
-                                <option value="MUL">Multi</option>
-                                <option value="ORA">Orange</option>
-                                <option value="PNK">Pink</option>
-                                <option value="PPL">Purple</option>
-                                <option value="RED">Red</option>
-                                <option value="SIL">Silver</option>
-                                <option value="TUR">Turquoise</option>
-                                <option value="WHI">White</option>
-                                <option value="YEL">Yellow</option>
+                                <option value="beige">Beige</option>
+                                <option value="black">Black</option>
+                                <option value="blue">Blue</option>
+                                <option value="bronze">Bronze</option>
+                                <option value="brown">Brown</option>
+                                <option value="cream">Cream</option>
+                                <option value="gold">Gold</option>
+                                <option value="green">Green</option>
+                                <option value="grey">Grey</option>
+                                <option value="maroon">Maroon</option>
+                                <option value="multi">Multi</option>
+                                <option value="orange">Orange</option>
+                                <option value="pink">Pink</option>
+                                <option value="purple">Purple</option>
+                                <option value="red">Red</option>
+                                <option value="silver">Silver</option>
+                                <option value="turquoise">Turquoise</option>
+                                <option value="white">White</option>
+                                <option value="yellow">Yellow</option>
                             </select>
                             @if ($errors->has('colour'))
                                 <div class="text-danger">{{ $errors->first('colour') }}</div>
@@ -644,12 +644,12 @@
                                         <label class="form-label pt-2 ms-4 " for="valid">Town / City :<span
                                                 style="color: red">*</span></label>
                                         <select name="town" class="form-control w-35 ms-2" id="c">
-                                            <option value="AF">Lahore</option>
-                                            <option value="AR">Karachi</option>
-                                            <option value="AU">Islamabad</option>
-                                            <option value="AT">Peshawar</option>
-                                            <option value="BE">Quetta</option>
-                                            <option value="BR">Multan</option>
+                                            <option value="lahore">Lahore</option>
+                                            <option value="karachi">Karachi</option>
+                                            <option value="islamabad">Islamabad</option>
+                                            <option value="peshawar">Peshawar</option>
+                                            <option value="quetta">Quetta</option>
+                                            <option value="multan">Multan</option>
                                         </select>
                                         @if ($errors->has('town'))
                                             <div class="text-danger">{{ $errors->first('town') }}</div>
