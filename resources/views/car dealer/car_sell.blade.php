@@ -7,8 +7,8 @@
         }
 
         /* .prev {
-                            float: left
-                        } */
+                                        float: left
+                                    } */
 
         .content__title {
             font-size: 20px;
@@ -170,6 +170,10 @@
             -webkit-transform: scale(1);
             transform: scale(1);
         }
+
+        #hedding {
+            text-decoration-color: #FE1517;
+        }
     </style>
     <div class="container" id="cont">
         <!--begin::Content container-->
@@ -189,39 +193,49 @@
                 <div class="multisteps-form__panel  p-4 pt-6 rounded bg-white js-active" data-animation="scaleIn">
                     <div class="multisteps-form__content">
                         <h4 class="backgrounds"> CAR DETAILS </h4>
-                        <div>
-                            <div class="positionadjust pt-3 ">
-                                <label for="carRegistration" class="form-label pt-1 ">Your Car Registration :
-                                    *</label>
-                                <input type="text" class="form-control w-25 ms-1" id="carRegistratoin"
-                                    placeholder="Enter your car registration" name="carRegistratoin">
+                        <div class="row">
+                            
+                            <div class="col-md-12">
+                                <div class="positionadjust pt-3 ">
+                                    <label for="carRegistration" class="form-label pt-1 ">Your Car Registration :
+                                        <span style="color: red">*</span></label>
+
+                                    <input type="text" class="form-control w-25 ms-1" id="carRegistratoin"
+                                        placeholder="Enter your car registration" name="carRegistratoin">
                                     @if ($errors->has('carRegistratoin'))
-                                    <div class="text-danger">{{ $errors->first('carRegistratoin') }}</div>
-                                     @endif
+                                        <div class="text-danger">{{ $errors->first('carRegistratoin') }}</div>
+                                    @endif
+                                </div>
                             </div>
-                            <h5 class="pt-3">Select your advert category or Name your Vechials </h5>
+                        </div>
+                        <div class="d-flex">
+                            <h4 class="pt-3 text-danger">Select your advert category or Name your Vechials </h4>
+                        </div>
+                        <div class="col-md-12">
                             <div class="positionadjust pt-3 ">
                                 <label for="price" class="form-lable pt-1 "> Your Car Name :</label>
                                 <input type="text " class="form-control w-25 ms-3" id="CarName"
                                     placeholder=" Civic C Class 2019 C180" name="CarName">
-                                    @if ($errors->has('CarName'))
+                                @if ($errors->has('CarName'))
                                     <div class="text-danger">{{ $errors->first('CarName') }}</div>
-                                     @endif
+                                @endif
                             </div>
                         </div>
                         <h4 class="backgrounds mt-4">Add price and description</h4>
 
                         <div>
                             <div class="positionadjust  pt-2">
-                                <label for="price" class="form-lable pt-1 ">Asking Price : *</label>
-                                <input type="text " class="form-control w-25 " id="askingprice"
-                                    placeholder="Asking Price" name="askingprice">
+                                <label for="price" class="form-lable pt-1 ">Asking Price : <span
+                                        style="color: red">*</span></label>
+                                <input type="text " class="form-control w-25 " id="askingprice" placeholder="Asking Price"
+                                    name="askingprice">
                                 <span class="text-danger">
                                     @if ($errors->has('askingprice'))
-                                    <div class="text-danger">{{ $errors->first('askingprice') }}</div>
-                                     @endif
+                                        <div class="text-danger">{{ $errors->first('askingprice') }}</div>
+                                    @endif
                                 </span>
                             </div>
+                            <br>
                             {{-- <div class="positionadjust  pt-1">
                                 <label for="checking" class="pt-1 ms-4">Price Display :</label>
                                 <label>
@@ -233,11 +247,12 @@
                                 </label>
                             </div> --}}
                             <div class="positionadjust decriptiontextarea pt-2 ">
-                                <label for="price" class="form-lable pt-1  ">DISCRIPTION : *</label>
+                                <label for="price" class="form-lable pt-1  ">DISCRIPTION : <span
+                                        style="color: red">*</span></label>
                                 <textarea class="form-control w-75" id="description" rows="5" cols="3" name="description"></textarea>
                                 @if ($errors->has('description'))
-                                <div class="text-danger">{{ $errors->first('description') }}</div>
-                                 @endif
+                                    <div class="text-danger">{{ $errors->first('description') }}</div>
+                                @endif
                             </div>
                             <div class="positionadjust  pt-2">
                                 <label for="price" class="form-lable pt-1 ">Part Exchange :</label>
@@ -246,8 +261,8 @@
                                     name="partexchange">If
                                 you change Part then fill it
                                 @if ($errors->has('partexchange'))
-                                <div class="text-danger">{{ $errors->first('partexchange') }}</div>
-                                 @endif
+                                    <div class="text-danger">{{ $errors->first('partexchange') }}</div>
+                                @endif
 
 
                             </div>
@@ -260,14 +275,15 @@
                                     <label class="form-label pt-2 ms-5" for="CardName ">Car Milage :</label>
                                     <input type="number" class="form-control w-35 ms-1" id="CardName"
                                         placeholder="Enter Name" name="Milage">
-                                        @if ($errors->has('Milage'))
+                                    @if ($errors->has('Milage'))
                                         <div class="text-danger">{{ $errors->first('Milage') }}</div>
-                                         @endif
+                                    @endif
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="mb-3 positionadjust">
-                                    <label for="CVV" class="form-label pt-3 ms-5">YEARS : *</label>
+                                    <label for="CVV" class="form-label pt-3 ms-5">YEARS : <span
+                                            style="color: red">*</span></label>
                                     <select name="modelYear" class=" form-control w-35 ms-3 " id="modelYear1">
                                         <option value=""></option>
                                         <option value="2024">2024</option>
@@ -297,15 +313,16 @@
                                         <option value="2000">2000</option>
                                     </select>
                                     @if ($errors->has('modelYear'))
-                                    <div class="text-danger">{{ $errors->first('modelYear') }}</div>
-                                     @endif
+                                        <div class="text-danger">{{ $errors->first('modelYear') }}</div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col">
                                 <div class="mb-3 positionadjust">
-                                    <label for="doors" class="ms-5">Car Doors :*</label>
+                                    <label for="doors" class="ms-5">Car Doors :<span
+                                            style="color: red">*</span></label>
                                     <select name="Doors" class=" form-control w-35 ms-1" id="Doors">
                                         <option value=""></option>
                                         <option value="002">2 Doors</option>
@@ -314,9 +331,9 @@
                                         <option value="005">5 Doors</option>
                                         <option value="006">6 Doors</option>
                                     </select>
-                                        @if ($errors->has('Doors'))
+                                    @if ($errors->has('Doors'))
                                         <div class="text-danger">{{ $errors->first('Doors') }}</div>
-                                         @endif
+                                    @endif
                                 </div>
                             </div>
 
@@ -333,8 +350,8 @@
                                         <option value="OTH">Other</option>
                                     </select>
                                     @if ($errors->has('GearBox'))
-                                    <div class="text-danger">{{ $errors->first('GearBox') }}</div>
-                                     @endif
+                                        <div class="text-danger">{{ $errors->first('GearBox') }}</div>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -342,7 +359,8 @@
                     <div class="row">
                         <div class="col">
                             <div class="mb-3 positionadjust">
-                                <label for="c" class="pt-2 ms-1 ms-5">Engin Type: *</label>
+                                <label for="c" class="pt-2 ms-1 ms-5">Engin Type: <span
+                                        style="color: red">*</span></label>
                                 <select name="engintype" class="form-control w-35 " id="c">
                                     <option selected="selected" value=""></option>
                                     <option value="PTL">Petrol</option>
@@ -353,8 +371,8 @@
                                     <option value="OTH">Other</option>
                                 </select>
                                 @if ($errors->has('engintype'))
-                                <div class="text-danger">{{ $errors->first('engintype') }}</div>
-                                 @endif
+                                    <div class="text-danger">{{ $errors->first('engintype') }}</div>
+                                @endif
                             </div>
                         </div>
                         <div class="col positionadjust">
@@ -382,15 +400,18 @@
                                 <option value="YEL">Yellow</option>
                             </select>
                             @if ($errors->has('colour'))
-                                    <div class="text-danger">{{ $errors->first('colour') }}</div>
-                                     @endif
+                                <div class="text-danger">{{ $errors->first('colour') }}</div>
+                            @endif
                         </div>
                     </div>
-                    <legend class="text-danger">PistonHead Essentials</legend>
+                    <legend class="text-danger">
+                        <h3>PistonHead Essentials</h3>
+                    </legend>
                     <div class="row pt-3">
                         <div class="col">
                             <div class="mb-3 positionadjust">
-                                <label for="doors" class=" ms-3"> Engine Pisition :*</label>
+                                <label for="doors" class=" ms-3"> Engine Pisition :<span
+                                        style="color: red">*</span></label>
                                 <select name="PistonHead" class=" form-control w-35 ms-1" id="Doors">
                                     <option selected="selected" value=""></option>
                                     <option value="FRO">Front Engined</option>
@@ -399,14 +420,15 @@
 
                                 </select>
                                 @if ($errors->has('PistonHead'))
-                                <div class="text-danger">{{ $errors->first('PistonHead') }}</div>
-                                 @endif
+                                    <div class="text-danger">{{ $errors->first('PistonHead') }}</div>
+                                @endif
                             </div>
                         </div>
 
                         <div class="col">
                             <div class="mb-3 positionadjust">
-                                <label for="c" class="mb-3 pt-2 ms-6">Aspiration : *</label>
+                                <label for="c" class="mb-3 pt-2 ms-6">Aspiration : <span
+                                        style="color: red">*</span></label>
                                 <select name="Aspiration" class="form-control w-35 ms-1" id="c">
                                     <option selected="selected" value=""></option>
                                     <option value="NAT">Normally Aspirated</option>
@@ -415,7 +437,7 @@
                                 </select>
                                 @if ($errors->has('Aspiration'))
                                     <div class="text-danger">{{ $errors->first('Aspiration') }}</div>
-                                     @endif>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -427,12 +449,13 @@
                                     name="enginesize">
                             </div>
                             @if ($errors->has('enginesize'))
-                                    <div class="text-danger">{{ $errors->first('enginesize') }}</div>
-                                     @endif
+                                <div class="text-danger">{{ $errors->first('enginesize') }}</div>
+                            @endif
                         </div>
                         <div class="col">
                             <div class="mb-3 positionadjust">
-                                <label for="CVV" class="form-label pt-3 ms-5">Cylinder Layout: *</label>
+                                <label for="CVV" class="form-label pt-3 ms-5">Cylinder Layout: <span
+                                        style="color: red">*</span></label>
                                 <select name="Cylinder" class=" form-control w-35 ms-1 " id="modelYear1">
                                     <option value=""></option>
                                     <option value="UNK">Unknown</option>
@@ -449,8 +472,8 @@
                                     <option value="W12">W12</option>
                                 </select>
                                 @if ($errors->has('Cylinder'))
-                                <div class="text-danger">{{ $errors->first('Cylinder') }}</div>
-                                 @endif
+                                    <div class="text-danger">{{ $errors->first('Cylinder') }}</div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -460,14 +483,15 @@
                                 <label class="form-label pt-2 " for="CardName ">Fuel Consumption:</label>
                                 <input type="text" class="form-control w-35 ms-1" id="CardName" placeholder=""
                                     name="FuelConsumption">
-                                    @if ($errors->has('FuelConsumption'))
+                                @if ($errors->has('FuelConsumption'))
                                     <div class="text-danger">{{ $errors->first('FuelConsumption') }}</div>
-                                     @endif
+                                @endif
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3 positionadjust">
-                                <label for="CVV" class="form-label pt-3 ms-6">Cylinder : *</label>
+                                <label for="CVV" class="form-label pt-3 ms-6">Cylinder : <span
+                                        style="color: red">*</span></label>
                                 <select name="noCylinder" class=" form-control w-35 ms-3 " id="modelYear1">
                                     <option value=""></option>
                                     <option value="2">2 Cylinders</option>
@@ -482,7 +506,7 @@
                                 </select>
                                 @if ($errors->has('noCylinder'))
                                     <div class="text-danger">{{ $errors->first('noCylinder') }}</div>
-                                     @endif
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -492,9 +516,9 @@
                                 <label class="form-label pt-2 ms-5" for="CardName ">Health:</label>
                                 <input type="text" class="form-control w-35 ms-1" id="CardName" placeholder=""
                                     name="Health">
-                                    @if ($errors->has('Health'))
+                                @if ($errors->has('Health'))
                                     <div class="text-danger">{{ $errors->first('Health') }}</div>
-                                     @endif
+                                @endif
                             </div>
                         </div>
                         <div class="col">
@@ -502,9 +526,9 @@
                                 <label class="form-label pt-2 ms-5" for="CardName ">Top speed (mph):</label>
                                 <input type="number" class="form-control w-35 ms-1" id="CardName" placeholder=""
                                     name="topspeed">
-                                    @if ($errors->has('topspeed'))
+                                @if ($errors->has('topspeed'))
                                     <div class="text-danger">{{ $errors->first('topspeed') }}</div>
-                                     @endif
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -526,12 +550,13 @@
                                 </select>
                                 @if ($errors->has('Drivenwheels'))
                                     <div class="text-danger">{{ $errors->first('Drivenwheels') }}</div>
-                                     @endif
+                                @endif
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3 positionadjust">
-                                <label for="CVV" class="form-label pt-3 ms-6">Owners : *</label>
+                                <label for="CVV" class="form-label pt-3 ms-6">Owners : <span
+                                        style="color: red">*</span></label>
                                 <select name="Owners" class=" form-control w-35 ms-4 " id="modelYear1">
                                     <option value=""></option>
                                     <option value="1">1 Owner</option>
@@ -543,8 +568,8 @@
                                     <option value="7">7 or more Owners</option>
                                 </select>
                                 @if ($errors->has('Owners'))
-                                <div class="text-danger">{{ $errors->first('Owners') }}</div>
-                                 @endif
+                                    <div class="text-danger">{{ $errors->first('Owners') }}</div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -565,54 +590,59 @@
                         <div class="row">
                             <div class="col">
                                 <div class="mb-3 positionadjust">
-                                    <label class="form-label pt-2 ms-4" for="valid">1st Name :*</label>
+                                    <label class="form-label pt-2 ms-4" for="valid">1st Name :<span
+                                            style="color: red">*</span></label>
                                     <input type="text" class="form-control w-35 ms-4" id="fullname"
                                         placeholder="i.e John" name="fullname">
-                                        @if ($errors->has('fullname'))
+                                    @if ($errors->has('fullname'))
                                         <div class="text-danger">{{ $errors->first('fullname') }}</div>
-                                         @endif
+                                    @endif
                                 </div>
                             </div>
                             <div class="col">
                                 <div class="mb-3 positionadjust">
-                                    <label class="form-label pt-2 ms-4" for="valid">2nd Name :*</label>
+                                    <label class="form-label pt-2 ms-4" for="valid">2nd Name :<span
+                                            style="color: red">*</span></label>
                                     <input type="text" class="form-control w-35 ms-4" id="fullname"
                                         placeholder="i.e Doe" name="lastname">
-                                        @if ($errors->has('lastname'))
+                                    @if ($errors->has('lastname'))
                                         <div class="text-danger">{{ $errors->first('lastname') }}</div>
-                                         @endif
+                                    @endif
                                 </div>
                             </div>
                             <div class="row pt-2">
                                 <div class="col">
                                     <div class="mb-3 positionadjust">
-                                        <label class="form-label pt-2 ms-4" for="valid">Address 1:*</label>
+                                        <label class="form-label pt-2 ms-4" for="valid">Address 1:<span
+                                                style="color: red">*</span></label>
                                         <input type="text" class="form-control w-75 ms-4 pt-2" id="fullname"
                                             placeholder="alfalah town  ,    badien road  ,    Lahore   , PUNJAB"
                                             name="address1">
-                                            @if ($errors->has('address1'))
+                                        @if ($errors->has('address1'))
                                             <div class="text-danger">{{ $errors->first('address1') }}</div>
-                                             @endif
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                             <div class="row pt-2">
                                 <div class="col">
                                     <div class="mb-3 positionadjust">
-                                        <label class="form-label pt-2 ms-4" for="valid">Address 2:*</label>
+                                        <label class="form-label pt-2 ms-4" for="valid">Address 2:<span
+                                                style="color: red">*</span></label>
                                         <input type="text" class="form-control w-75 ms-4 pt-2" id="fullname"
                                             placeholder="Narang mandi   ,     dara ashraf   ,    Narowall    ,  Punjab   "
                                             name="address2">
-                                            @if ($errors->has('address2'))
+                                        @if ($errors->has('address2'))
                                             <div class="text-danger">{{ $errors->first('address2') }}</div>
-                                             @endif
+                                        @endif
                                     </div>
                                 </div>
                             </div>
                             <div class="row pt-2">
                                 <div class="col">
                                     <div class="mb-3 positionadjust">
-                                        <label class="form-label pt-2 ms-4 " for="valid">Town / City :*</label>
+                                        <label class="form-label pt-2 ms-4 " for="valid">Town / City :<span
+                                                style="color: red">*</span></label>
                                         <select name="town" class="form-control w-35 ms-2" id="c">
                                             <option value="AF">Lahore</option>
                                             <option value="AR">Karachi</option>
@@ -622,14 +652,14 @@
                                             <option value="BR">Multan</option>
                                         </select>
                                         @if ($errors->has('town'))
-                                        <div class="text-danger">{{ $errors->first('town') }}</div>
-                                         @endif
+                                            <div class="text-danger">{{ $errors->first('town') }}</div>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="mb-3 positionadjust">
                                         <label class="form-label pt-2 ms-5 pt-3" for="valid">County /
-                                            State:*</label>
+                                            State:<span style="color: red">*</span></label>
                                         <select name="country" class="form-control w-35 ms-2" id="c">
                                             <option value="AF">Afghanistan</option>
                                             <option value="AR">Argentina</option>
@@ -700,30 +730,31 @@
                                             <option value="YU">Yugoslavia</option>
                                         </select>
                                         @if ($errors->has('country'))
-                                        <div class="text-danger">{{ $errors->first('country') }}</div>
-                                         @endif
+                                            <div class="text-danger">{{ $errors->first('country') }}</div>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="row pt-2">
                                     <div class="col">
                                         <div class="mb-3 positionadjust">
-                                            <label class="form-label pt-2 ms-4" for="valid">Postcode :*</label>
+                                            <label class="form-label pt-2 ms-4" for="valid">Postcode :<span
+                                                    style="color: red">*</span></label>
                                             <input type="number" class="form-control w-35 ms-4" id="fullname"
                                                 placeholder="" name="Postcode">
-                                                @if ($errors->has('Postcode'))
+                                            @if ($errors->has('Postcode'))
                                                 <div class="text-danger">{{ $errors->first('Postcode') }}</div>
-                                                 @endif
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="col">
                                         <div class="mb-3 positionadjust">
                                             <label class="form-label pt-2 ms-4" for="valid">Telephone Number
-                                                :*</label>
+                                                :<span style="color: red">*</span></label>
                                             <input type="number" class="form-control w-35 ms-1" id="fullname"
                                                 placeholder="+923480332899" name="Telephone">
-                                                @if ($errors->has('Telephone'))
+                                            @if ($errors->has('Telephone'))
                                                 <div class="text-danger">{{ $errors->first('Telephone') }}</div>
-                                                 @endif
+                                            @endif
                                         </div>
                                     </div>
                                     <div class="button-row   mt-4">

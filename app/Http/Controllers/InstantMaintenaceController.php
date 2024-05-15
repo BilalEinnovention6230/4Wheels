@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use Hash;
+use App\Models\User;
+use App\Models\profileModel;
+use Illuminate\Http\Request;
 use App\Models\InstantMaintenance;
 use App\Models\MechanicRegistration;
-use App\Models\profileModel;
-use App\Models\User;
-use Illuminate\Http\Request;
 
 class InstantMaintenaceController extends Controller
 {
@@ -65,7 +67,7 @@ class InstantMaintenaceController extends Controller
         User::create([
             'name' => $req->input('name'),
             'email' => $req->input('email'),
-            'password' => \Hash::make($req->input('password')),
+            'password' => Hash::make($req->input('password')),
             'mobile_number' => $req->input('number'),
             'address' => $req->input('Address'),
             'image' => $relativeImagePath, // Store the image path in the 'image' column
@@ -76,7 +78,7 @@ class InstantMaintenaceController extends Controller
     
     public function Login(Request $req)
     {
-        if (\Auth::attempt($req->only('email', 'password'))) {
+        if (Auth::attempt($req->only('email', 'password'))) {
             return redirect('WebsiteLandingPage');
         } else {
             return redirect()->back()->with('error', 'Invalid email or password');
