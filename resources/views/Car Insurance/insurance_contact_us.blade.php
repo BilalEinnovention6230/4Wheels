@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8 text-center bg-white p-5 rounded shadow-sm border border-danger">
             <div class="d-flex align-items-center justify-content-start mb-4">
-                <img src="{{ $contactpage->logo }}" alt="{{ $contactpage->CompanyName }} Logo" class="img-fluid" style="max-width: 150px;">
+                <img src="{{ $contactpage->UploadLogo }}" alt="{{ $contactpage->CompanyName }} Logo" class="img-fluid" style="max-width: 150px;">
             </div>
             <h1 class="mb-3 text-danger">{{ $contactpage->CompanyName }}</h1>
             <p class="lead mb-4">{{ $contactpage->CompanyTagLine }}</p>
@@ -29,15 +29,20 @@
         <div class="col-md-8">
             <div class="bg-white p-5 rounded shadow-sm border border-danger">
                 <h2 class="mb-4 text-danger">Contact Us</h2>
-                {{-- <form method="POST" action="{{ route('contact.submit') }}"> --}}
+                <form method="POST" action="{{ route('contact.submit') }}">
                     @csrf
                     <div class="mb-3">
                         <label for="email" class="form-label text-dark">Email Address</label>
                         <input type="email" class="form-control border border-danger" id="email" name="email" required>
                     </div>
+                    <input type="tel" class="form-control border border-danger"   value="{{$contactpage->Working_Gmail}}" id="contact_number" name="Working_Gmail" hidden>
                     <div class="mb-3">
                         <label for="contact_number" class="form-label text-dark">Contact Number</label>
                         <input type="tel" class="form-control border border-danger" id="contact_number" name="contact_number" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contact_number" class="form-label text-dark">Car Modal</label>
+                        <input type="tel" class="form-control border border-danger" id="contact_number" name="carmodal" required>
                     </div>
                     <button type="submit" class="btn btn-danger">Submit</button>
                 </form>
