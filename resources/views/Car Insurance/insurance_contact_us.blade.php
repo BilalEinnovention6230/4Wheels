@@ -34,7 +34,7 @@
                     <div class="mb-3">
                         <label for="email" class="form-label text-dark">Email Address</label>
                         <input type="email" class="form-control border border-danger" id="email" name="email" required>
-                    </div>
+                    </div> 
                     <input type="tel" class="form-control border border-danger"   value="{{$contactpage->Working_Gmail}}" id="contact_number" name="Working_Gmail" hidden>
                     <div class="mb-3">
                         <label for="contact_number" class="form-label text-dark">Contact Number</label>

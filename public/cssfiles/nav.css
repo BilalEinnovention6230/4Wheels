@@ -74,10 +74,10 @@ nav .container-fluid .d-flex button:focus
     
 }
 .positionadjust
-{
+/* {
     display:flex;
-    flex-direction: row;
-}
+    flex-direction: row; */
+/* } */
 .decriptiontextarea
 {
     /* width: 00px; */
@@ -659,11 +659,11 @@ nav .container-fluid .d-flex button:focus
     color:white;
 }
 
-.positionadjust
+/* .positionadjust
 {
     display:flex;
     flex-direction: row;
-}
+} */
 .decriptiontextarea
 {
     /* width: 00px; */

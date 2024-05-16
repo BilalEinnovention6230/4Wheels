@@ -62,7 +62,7 @@
                         <label class="form-label pt-2" for="valid"> Company Rate*</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" class="form-control w-75" id="fullname" name="CompanyRate">
+                        <input type="number" class="form-control w-75" id="fullname" name="CompanyRate">
                         <span class="text-danger">
                             @error('CompanyRate')
                                 {{ $message }}
@@ -92,7 +92,7 @@
                         <label class="form-label pt-2" for="valid"> Company_Contact_Number :*</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" class="form-control w-75" id="fullname" name="Company_Contact_Number">
+                        <input type="number" class="form-control w-75" id="fullname" name="Company_Contact_Number">
                         <span class="text-danger">
                             @error('Company_Contact_Number')
                                 {{ $message }}
@@ -107,7 +107,7 @@
                         <label class="form-label pt-2" for="valid"> Landline_Number:*</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" class="form-control w-75" id="fullname" name="Landline_Number">
+                        <input type="number" class="form-control w-75" id="fullname" name="Landline_Number">
                         <span class="text-danger">
                             @error('Landline_Number')
                                 {{ $message }}
@@ -122,7 +122,7 @@
                         <label class="form-label pt-2" for="valid"> Working_Gmail:*</label>
                     </div>
                     <div class="col-md-8">
-                        <input type="text" class="form-control w-75" id="fullname" name="Working_Gmail">
+                        <input type="email" class="form-control w-75" id="fullname" name="Working_Gmail">
                         <span class="text-danger">
                             @error('Working_Gmail')
                                 {{ $message }}

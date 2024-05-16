@@ -53,7 +53,7 @@ Route::post('/signup_form', [InstantMaintenaceController::class, 'signup'])->nam
 Route::post('/booking', [CarRegistration::class, 'booking'])->name('booking');
 Route::post('/upload-image', [CarRegistration::class, 'storeImage'])->name('store');
 Route::post('/isurance_company_register', [InsuranceCompanyController::class, 'company_register'])->name('insurance-company-register');
-Route::get('/insurance_form/{id}', [InsuranceCompanyController::class, 'ContactUs']);
+Route::get('/insurance_form/{id}', [InsuranceCompanyController::class, 'ContactUs'])->name("insurance_form");
 Route::post('/insurance_contact_us', [InsuranceCompanyController::class, 'ContactUsForm'])->name('contact.submit');
 Route::post('/isurance_car_register', [CarInsuranceController::class, 'car_insurance'])->name('car_isurance');
 

@@ -70,6 +70,7 @@ class MechanicShopController extends Controller
 
     public function register(Request $req)
     {
+        // return $req;
         $data = new MechanicRegistration;
         $data->Wname = $req->Wname;
         $data->Address = $req->Address;
@@ -79,23 +80,24 @@ class MechanicShopController extends Controller
         $data->cloestime = $req->cloestime;
         $data->detail = $req->detail;
         $data->closeday = $req->closeday;
-        $data->name = $req->name;
+        // $data->name = $req->name;
         $data->password = $req->password;
         $data->latitude = $req->latitude;
         $data->longitude = $req->longitude;
         $data->save();
-        $req->validate([
-            'image' => 'required|image|mimes:png,jpg,jpeg|max:2048',
-        ]);
+        // $req->validate([
+        //     'image' => 'required|image|mimes:png,jpg,jpeg|max:2048',
+        // ]);
 
-        $imageName = time() . '.' . $req->image->extension();
-
-        // Public Folder
-        $image = $req->image->move(public_path('images'), $imageName);
-        $relativeImagePath = str_replace(public_path(), '', $image);
-        $data->image = $relativeImagePath;
+        if($req->hasFile('image')){
+            $imageName = time() . '.' . $req->image->extension();
+            // Public Folder
+            $image = $req->image->move(public_path('images'), $imageName);
+            $relativeImagePath = str_replace(public_path(), '', $image);
+            $data->image = $relativeImagePath;
+        }
         $data->save();
-        return redirect()->back();
+        return redirect()->route('WebsiteLandingPage');
     }
     public function workshops($recordid)
     {

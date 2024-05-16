@@ -15,13 +15,13 @@
 
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <style>
-        .scrollable_box{
-            width: 1340px;
-    column-gap: 20px;
-    overflow: hidden;
-    display: flex;
-    overflow-x: scroll;
-    padding: 2rem;
+        .scrollable_box {
+            width: 100%;
+            column-gap: 20px;
+            overflow: hidden;
+            display: flex;
+            overflow-x: scroll;
+            padding: 2rem;
         }
     </style>
 </head>
@@ -78,7 +78,7 @@
         <div class="border-left-right mb-4">
             <h1>Explore Our Car Listings</h1>
         </div>
-        <div class="" >
+        <div class="">
             <div class=" scrollable_box">
                 @foreach ($data as $item)
                     {{-- <div class="col-2">
@@ -181,68 +181,32 @@
         <div class="border-left-right mb-4">
             <h1>Discover Top-Quality Car Maintenance Services</h1>
         </div>
-        <div class="row ms-4" style="width: 95%">
-            <div class="col-3">
-                <div class="card text-start">
-                    <img class="card-img-top" src="./car.png" alt="Car Image">
-                    <div class="card-body">
-                        <h4 class="card-title">Expert Car Maintenance Package</h4>
-                        <p class="card-text">Service Type: Full Maintenance</p>
-                        <p class="card-text">Price: $150</p>
-                        <p class="card-text">Estimated Duration: 2 hours</p>
-                        <div class="text-center">
-                            <a href="#" class="btn btn-danger">Book Now</a>
-                        </div>
-                    </div>
+        {{-- <div class="row ms-4"> --}}
+        {{-- <div class="car-purchase"  style="width: 100%"> --}}
+        <div class="scrollable_box">
 
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="card text-start">
-                    <img class="card-img-top" src="./car.png" alt="Car Image">
-                    <div class="card-body">
-                        <h4 class="card-title">Expert Car Maintenance Package</h4>
-                        <p class="card-text">Service Type: Full Maintenance</p>
-                        <p class="card-text">Price: $150</p>
-                        <p class="card-text">Estimated Duration: 2 hours</p>
-                        <div class="text-center">
-                            <a href="#" class="btn btn-danger">Book Now</a>
+            @foreach ($mechanics as $data)
+                <div class="col-3">
+                    <div class="card text-start">
+                        <img class="card-img-top" src="{{ $data->image }}" width="100%" height="150px"
+                            alt="Car Image">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ $data->Wname ?? '' }}</h4>
+                            <p class="card-text">Service Type: {{ $data->Service ?? '' }}</p>
+                            <p class="card-text">Specialization:{{ $data->Specialization ?? '' }}</p>
+                            <p class="card-text">Contact: {{ $data->Contact ?? '' }}</p>
+                            <div class="text-center">
+                                <a href="tel:{{ $data->Contact ?? '' }}" class="btn btn-danger">Contact Now</a>
+                            </div>
                         </div>
-                    </div>
 
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="card text-start">
-                    <img class="card-img-top" src="./car.png" alt="Car Image">
-                    <div class="card-body">
-                        <h4 class="card-title">Expert Car Maintenance Package</h4>
-                        <p class="card-text">Service Type: Full Maintenance</p>
-                        <p class="card-text">Price: $150</p>
-                        <p class="card-text">Estimated Duration: 2 hours</p>
-                        <div class="text-center">
-                            <a href="#" class="btn btn-danger">Book Now</a>
-                        </div>
                     </div>
-
                 </div>
-            </div>
-            <div class="col-3">
-                <div class="card text-start">
-                    <img class="card-img-top" src="./car.png" alt="Car Image">
-                    <div class="card-body">
-                        <h4 class="card-title">Expert Car Maintenance Package</h4>
-                        <p class="card-text">Service Type: Full Maintenance</p>
-                        <p class="card-text">Price: $150</p>
-                        <p class="card-text">Estimated Duration: 2 hours</p>
-                        <div class="text-center">
-                            <a href="#" class="btn btn-danger">Book Now</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+            @endforeach
         </div>
+        {{-- </div> --}}
+
+        {{-- </div> --}}
     </div>
 
     <div class="chose-us mt-5 mb-2 " data-aos="fade-out">
@@ -289,74 +253,27 @@
             <h1>Find the Perfect Protection for Your Vehicle</h1>
         </div>
         <div class="row ms-4" style="width: 95%">
-            <div class="col-3">
-                <div class="card text-start">
-                    <img class="card-img-top" src="./car.png" alt="Car Image">
-                    <div class="card-body">
-                        <h4 class="card-title">Comprehensive Car Insurance</h4>
-                        <p class="card-text">Coverage Type: Full Protection</p>
-                        <p class="card-text">Price: $500 per year</p>
-                        <p class="card-text">Policy Features: Accident Coverage, Theft Protection, Roadside Assistance
-                        </p>
-                        <div class="text-center">
-                            <a href="#" class="btn btn-danger">Get a Quote</a>
+            @foreach ($insurance_companiest as $company)
+                <div class="col-3">
+                    <div class="card text-start">
+                        <img class="card-img-top" src="{{ $company->image }}" width="100%" height="150px"
+                            alt="Car Image">
+                        <div class="card-body">
+                            <h4 class="card-title">Comprehensive {{ $$company->CompanyName ?? '' }}</h4>
+                            <p class="card-text">Company Owner Name: {{ $company->Company_Owner_Name ?? '' }}</p>
+                            <p class="card-text">Price: {{ $company->CompanyRate ?? '' }}</p>
+                            <p class="card-text">{{ $company->CompanyTagLine ?? '' }}
+                            </p>
+                            <div class="text-center">
+                                <a href="{{ route('insurance_form', ['id' => $company->id]) }}"
+                                    class="btn btn-danger">Get a Quote</a>
+                            </div>
                         </div>
+
+
                     </div>
-
-
                 </div>
-            </div>
-            <div class="col-3">
-                <div class="card text-start">
-                    <img class="card-img-top" src="./car.png" alt="Car Image">
-                    <div class="card-body">
-                        <h4 class="card-title">Comprehensive Car Insurance</h4>
-                        <p class="card-text">Coverage Type: Full Protection</p>
-                        <p class="card-text">Price: $500 per year</p>
-                        <p class="card-text">Policy Features: Accident Coverage, Theft Protection, Roadside Assistance
-                        </p>
-                        <div class="text-center">
-                            <a href="#" class="btn btn-danger">Get a Quote</a>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="card text-start">
-                    <img class="card-img-top" src="./car.png" alt="Car Image">
-                    <div class="card-body">
-                        <h4 class="card-title">Comprehensive Car Insurance</h4>
-                        <p class="card-text">Coverage Type: Full Protection</p>
-                        <p class="card-text">Price: $500 per year</p>
-                        <p class="card-text">Policy Features: Accident Coverage, Theft Protection, Roadside Assistance
-                        </p>
-                        <div class="text-center">
-                            <a href="#" class="btn btn-danger">Get a Quote</a>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
-            <div class="col-3">
-                <div class="card text-start">
-                    <img class="card-img-top" src="./car.png" alt="Car Image">
-                    <div class="card-body">
-                        <h4 class="card-title">Comprehensive Car Insurance</h4>
-                        <p class="card-text">Coverage Type: Full Protection</p>
-                        <p class="card-text">Price: $500 per year</p>
-                        <p class="card-text">Policy Features: Accident Coverage, Theft Protection, Roadside Assistance
-                        </p>
-                        <div class="text-center">
-                            <a href="#" class="btn btn-danger">Get a Quote</a>
-                        </div>
-                    </div>
-
-
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     <script>
