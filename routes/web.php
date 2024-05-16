@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\CarInsuranceController;
-use App\Http\Controllers\CarRegistration;
-use App\Http\Controllers\InstantMaintenaceController;
-use App\Http\Controllers\InsuranceCompanyController;
-use App\Http\Controllers\profileController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CarRegistration;
+use App\Http\Controllers\profileController;
+use App\Http\Controllers\CarInsuranceController;
+use App\Http\Controllers\InsuranceCompanyController;
+use App\Http\Controllers\InstantMaintenaceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,8 @@ Route::post('/signup_form', [InstantMaintenaceController::class, 'signup'])->nam
 Route::post('/booking', [CarRegistration::class, 'booking'])->name('booking');
 Route::post('/upload-image', [CarRegistration::class, 'storeImage'])->name('store');
 Route::post('/isurance_company_register', [InsuranceCompanyController::class, 'company_register'])->name('insurance-company-register');
+Route::get('/insurance_form/{id}', [InsuranceCompanyController::class, 'ContactUs']);
+Route::post('/insurance_contact_us', [InsuranceCompanyController::class, 'ContactUsForm'])->name('contact.submit');
 Route::post('/isurance_car_register', [CarInsuranceController::class, 'car_insurance'])->name('car_isurance');
 
 Route::get('/car_buy', [CarRegistration::class, 'car_buy'])->name('car_buy');
@@ -122,19 +125,18 @@ Route::get('/postadd/{id}', [CarRegistration::class, 'postadd'])->name('postadd'
 
 Route::get('/Login_form', function () {
     return view('Login&signup\login');
-
 });
 Route::get('/signup_form', function () {
     return view('Login&signup\signup');
+});
+// Route::get('/insurance_form/{id}', function ($id) {
+//     return view('Car Insurance\insurance_form', ['id' => $id]);
+// });
 
-});
-Route::get('/insurance_form', function () {
-    return view('Car Insurance\insurance_form');
-});
 
-Route::get('/insurance_form', function () {
-    return view('Car Insurance\insurance_form');
-});
+// Route::get('/insurance_form', function () {
+//     return view('Car Insurance\insurance_form');
+// });
 Route::get('/insurance_registration', function () {
     return view('Car Insurance\insurance_compnay_register');
 });

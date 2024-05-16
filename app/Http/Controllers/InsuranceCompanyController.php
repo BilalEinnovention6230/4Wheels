@@ -1,9 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\InsuranceCompany;
 
+use App\Mail\contactus;
 use Illuminate\Http\Request;
+
+use App\Models\InsuranceCompany;
+use Illuminate\Support\Facades\Mail;
 
 class InsuranceCompanyController extends Controller
 {
@@ -52,6 +55,22 @@ return redirect('Insurance');
         $data= InsuranceCompany::all();
         return view('Car Insurance\insurance_company', compact('data'));
     }
+    public function ContactUs(string $id)
+    {
+        $contactpage= InsuranceCompany::find($id);
+        return view('Car Insurance\insurance_contact_us', compact('contactpage'));
+    }
+    public function ContactUsForm(Request $request)
+    {
+        $user = auth()->user();
+        if ($user && $user->count() > 0) {
+            Mail::to($request->Working_Gmail)->send(new ContactUs($user, $request->email, $request->contact_number));
+            return redirect()->route('Insurance')->with('success', 'Your email has been sent successfully. We will contact you later.');
+        } else {
+            return redirect()->back()->with('error', 'Unable to send email. Please ensure you are logged in and try again.');
+        }
+    }
+    
     // public function validation(Request $req)
     // {
     //     $req->validate([

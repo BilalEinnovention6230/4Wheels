@@ -14,6 +14,16 @@
     <link rel="stylesheet" href="\fontawesome-free-6.4.0-web\css\all.min.css" />
 
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        .scrollable_box{
+            width: 1340px;
+    column-gap: 20px;
+    overflow: hidden;
+    display: flex;
+    overflow-x: scroll;
+    padding: 2rem;
+        }
+    </style>
 </head>
 
 <body>
@@ -45,16 +55,20 @@
                 </li>
             </ul>
         </nav>
-        <div class="content">
-            <h1>4Wheels</h1>
-            <div class="d-flex btnmodule">
-                <a href="{{ route('car_buy') }}" class="btn btn-outline-light fw-bold mx-2 ms-4"
-                    style="color: black">Find a Car</a>
-                <a href="{{ route('CarSell') }}" class="btn btn-outline-light fw-bold mx-2" style="color: black">Sell
-                    Your Car</a>
-                <a href="Insurance" class="btn btn-outline-light fw-bold mx-2" style="color: black">Get Insurance</a>
-                <a href="Maintanance" class="btn btn-outline-light fw-bold mx-2" style="color: black">Book
-                    Maintenance</a>
+        <div class="content w-100">
+            <div class="text-center">
+                <h1>4Wheels</h1>
+                <div class="d-flex btnmodule justify-content-center">
+                    <a href="{{ route('car_buy') }}" class="btn btn-outline-light fw-bold mx-2 ms-4"
+                        style="color: black">Find a Car</a>
+                    <a href="{{ route('CarSell') }}" class="btn btn-outline-light fw-bold mx-2"
+                        style="color: black">Sell
+                        Your Car</a>
+                    <a href="Insurance" class="btn btn-outline-light fw-bold mx-2" style="color: black">Get
+                        Insurance</a>
+                    <a href="Maintanance" class="btn btn-outline-light fw-bold mx-2" style="color: black">Book
+                        Maintenance</a>
+                </div>
             </div>
         </div>
     </div>
@@ -64,8 +78,8 @@
         <div class="border-left-right mb-4">
             <h1>Explore Our Car Listings</h1>
         </div>
-        <div class="scrollable-row" style="width: 100%; overflow-x: auto; white-space: nowrap;">
-            <div class="row">
+        <div class="" >
+            <div class=" scrollable_box">
                 @foreach ($data as $item)
                     {{-- <div class="col-2">
                         <div class="card text-start clas" style="display: inline-block; margin-right: 10px;">
