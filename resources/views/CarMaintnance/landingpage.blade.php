@@ -161,7 +161,7 @@
                         <div class="row mb-3">
                             <div class="col-6">
                                 <label for="cnum">Contact Number</label>
-                                <input type="text" class="form-control" name="contact" id="contact"
+                                <input type="number" class="form-control" name="contact" id="contact"
                                     placeholder="03086159654">
                             </div>
                             <div class="col-6">

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class AcceptedOrders extends Model
 {
-    protected $table = "acceptedorders";
+    protected $table = "table_accepted_orders";
     use HasFactory;
 
     // Add the 'firstname' column to the $fillable property

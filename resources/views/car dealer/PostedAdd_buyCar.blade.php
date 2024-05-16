@@ -1,14 +1,14 @@
 @extends('partial.practice')
 @section('content')
     <div class="container bgcolor mt-3 ">
-            
-        
+
+
         <div class="text-center BodyTexAdjust">
             <code>HomeUsed /CarsCars /KarachiToyota /KarachiVitz /KarachiVitz /2020 /KarachiVitz /2020</code>
         </div>
         <div class="row">
 
-            <div class="col-1 text-end  mt-5">    </div>
+            <div class="col-1 text-end  mt-5"> </div>
             <div class="col-md-7 bg-light  mt-5">
                 <h1 class="h1text text-center mt-5 pt-2" style="background-color: rgb(243, 243, 243)">
                     Toyota Corolla Altis Automatic 1.6 2020
@@ -18,8 +18,7 @@
                         Narang Mandi, Dara Ashraf
                     </a>
                 </p>
-                <div id="carouselExampleDark" class="carousel carousel-dark slide ps-3 pe-2 mt-1 bg-danger"
-                    data-bs-ride="carousel">
+                <div id="carouselExampleDark" class="carousel carousel-dark slide ps-3 pe-2 mt-1" data-bs-ride="carousel">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
                             aria-current="true" aria-label="Slide 1"></button>
@@ -29,15 +28,14 @@
                             aria-label="Slide 3"></button>
                     </div>
                     <div class="carousel-inner">
-                        <div class="carousel-item active" data-bs-interval="10000">
-                            <img src="{{ asset($data->image1) }}" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item" data-bs-interval="2000">
-                            <img src="{{ asset($data->image1) }}" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="{{ asset($data->image1) }}" class="d-block w-100" alt="...">
-                        </div>
+                        @for ($i = 1; $i < 10; $i++)
+                            @if (!empty($data->{"image$i"}))
+                                <div class="carousel-item {{ $i == 1 ? 'active' : '' }}" data-bs-interval="10000">
+                                    <img src="{{ asset($data->{"image$i"}) }}" height="400px" class="d-block w-100"
+                                        alt="...">
+                                </div>
+                            @endif
+                        @endfor
                         <button class="carousel-control-prev slider_button" type="button"
                             data-bs-target="#carouselExampleDark" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -52,36 +50,49 @@
                 </div>
 
                 <div class="row bg-light ms-2 pt-3 border-right slider_button">
-                    <div class="col-md-2 ps-1 border">
-                        <a href="#carouselExampleDark" role="button" data-bs-slide-to="0">
-                            <img src="{{ asset($data->image1) }}" alt="Image 1" width="100px" class="img-fluid">
-                        </a>
-                    </div>
-                    <div class="col-md-2 ps-1 border">
-                        <a href="#carouselExampleDark" role="button" data-bs-slide-to="1">
-                            <img src="{{ asset($data->image2) }}"alt="Image 2" width="100px" class="img-fluid">
-                        </a>
-                    </div>
-                    <div class="col-md-2 ps-1 border">
-                        <a href="#carouselExampleDark" role="button" data-bs-slide-to="2">
-                            <img src="{{ asset($data->image3) }}" alt="Image 3" width="100px" class="img-fluid">
-                        </a>
-                    </div>
-                    <div class="col-md-2 ps-1 border">
-                        <a href="#carouselExampleDark" role="button" data-bs-slide-to="3">
-                            <img src="{{ asset($data->image4) }}" alt="Image 4" width="100px" class="img-fluid">
-                        </a>
-                    </div>
-                    <div class="col-md-2 ps-1 border">
-                        <a href="#carouselExampleDark" role="button" data-bs-slide-to="4">
-                            <img src="{{ asset($data->image5) }}" alt="Image 5" width="100px" class="img-fluid">
-                        </a>
-                    </div>
-                    <div class="col-md-2 ps-1 border">
-                        <a href="#carouselExampleDark" role="button" data-bs-slide-to="5">
-                            <img src="{{ asset($data->image6) }}" alt="Image 6" width="100px" class="img-fluid">
-                        </a>
-                    </div>
+                    @if ($data && $data->image1)
+                        <div class="col-md-2 ps-1 border">
+                            <a href="#carouselExampleDark" role="button" data-bs-slide-to="0">
+                                <img src="{{ asset($data->image1) }}" alt="Image 1" width="100px" class="img-fluid">
+                            </a>
+                        </div>
+                    @endif
+                    @if ($data && $data->image2)
+                        <div class="col-md-2 ps-1 border">
+                            <a href="#carouselExampleDark" role="button" data-bs-slide-to="1">
+                                <img src="{{ asset($data->image2) }}"alt="Image 2" width="100px" class="img-fluid">
+                            </a>
+                        </div>
+                    @endif
+
+                    @if ($data && $data->image3)
+                        <div class="col-md-2 ps-1 border">
+                            <a href="#carouselExampleDark" role="button" data-bs-slide-to="2">
+                                <img src="{{ asset($data->image3) }}" alt="Image 3" width="100px" class="img-fluid">
+                            </a>
+                        </div>
+                    @endif
+                    @if ($data && $data->image4)
+                        <div class="col-md-2 ps-1 border">
+                            <a href="#carouselExampleDark" role="button" data-bs-slide-to="3">
+                                <img src="{{ asset($data->image4) }}" alt="Image 4" width="100px" class="img-fluid">
+                            </a>
+                        </div>
+                    @endif
+                    @if ($data && $data->image5)
+                        <div class="col-md-2 ps-1 border">
+                            <a href="#carouselExampleDark" role="button" data-bs-slide-to="4">
+                                <img src="{{ asset($data->image5) }}" alt="Image 5" width="100px" class="img-fluid">
+                            </a>
+                        </div>
+                    @endif
+                    @if ($data && $data->image6)
+                        <div class="col-md-2 ps-1 border">
+                            <a href="#carouselExampleDark" role="button" data-bs-slide-to="5">
+                                <img src="{{ asset($data->image6) }}" alt="Image 6" width="100px" class="img-fluid">
+                            </a>
+                        </div>
+                    @endif
                 </div>
                 <div class="row mt-5 me-3">
                     <div class="col-md-3 border">
@@ -111,42 +122,42 @@
                 </div>
                 <br>
                 <div class="auction-list fs16">
-                  <ul class="list-unstyled clearfix nomargin">
-                    <li>
-                      <strong class="pull-right">25</strong>
-                      Mileage
-                    </li>
-                    <li>
-                      <strong class="pull-right ">2023-03-09</strong>
-                      Auction Date
-                    </li>
-                    <li>
-                      <strong class="pull-right ">KSP130-4031537</strong>
-                      Chassis number
-                    </li>
-                  </ul>
+                    <ul class="list-unstyled clearfix nomargin">
+                        <li>
+                            <strong class="pull-right">25</strong>
+                            Mileage
+                        </li>
+                        <li>
+                            <strong class="pull-right ">2023-03-09</strong>
+                            Auction Date
+                        </li>
+                        <li>
+                            <strong class="pull-right ">KSP130-4031537</strong>
+                            Chassis number
+                        </li>
+                    </ul>
                 </div>
                 <br>
                 <br>
                 <h2> Car Feature </h2>
                 <div class="row ">
-                  <div class="col-md-4">ABS</div>
-                  <div class="col-md-4">AM/FM Radio
-                  </div>
-                  
-                  <div class="col-md-4">Air Bags</div>
-                  <div class="col-md-4 mt-2">Air Conditioning</div>
-                  <div class="col-md-4 mt-2">CD Player</div>
-                  <div class="col-md-4 mt-2">Front Speaker</div>
-                  <div class="col-md-4 mt-2">Immobilzer Keys</div>
-                  <div class="col-md-4 mt-2">Keyless Entry</div>
-                  <div class="col-md-4 mt-2">Power Locks</div>
-                  <div class="col-md-4 mt-2">Power Mirror</div>
-                  <div class="col-md-4 mt-2">Power steering</div>
-                  <div class="col-md-4 mt-2">Power Window</div>
+                    <div class="col-md-4">ABS</div>
+                    <div class="col-md-4">AM/FM Radio
+                    </div>
+
+                    <div class="col-md-4">Air Bags</div>
+                    <div class="col-md-4 mt-2">Air Conditioning</div>
+                    <div class="col-md-4 mt-2">CD Player</div>
+                    <div class="col-md-4 mt-2">Front Speaker</div>
+                    <div class="col-md-4 mt-2">Immobilzer Keys</div>
+                    <div class="col-md-4 mt-2">Keyless Entry</div>
+                    <div class="col-md-4 mt-2">Power Locks</div>
+                    <div class="col-md-4 mt-2">Power Mirror</div>
+                    <div class="col-md-4 mt-2">Power steering</div>
+                    <div class="col-md-4 mt-2">Power Window</div>
                 </div>
                 <br>
-                <br><br> 
+                <br><br>
             </div>
 
             <div class="col-md-3  mt-5  ms-3 text-center">
@@ -193,7 +204,8 @@
                         <div class="d-flex align-items-center">
                             <small class="text-start pt-2 ps-5"
                                 style="font-weight: bold; font-size: 15px">Post_Code:</small>
-                            <table class="table mb-0 ms-2  mt-2" style="border-width:1px; background-color:rgb(253, 253, 229)">
+                            <table class="table mb-0 ms-2  mt-2"
+                                style="border-width:1px; background-color:rgb(253, 253, 229)">
                                 <tr>
                                     <td class="border ">56789</td>
                                 </tr>
@@ -230,9 +242,9 @@
                         <span class="fs-5"> Safity Tips !!!</span>
                         <hr class="underline">
                         <ol class="text-start">
-                          <li >Use a safe location to meet seller</li>
-                          <li>Avoid cash transactions</li>
-                          <li>Beware of unrealistic offers</li>
+                            <li>Use a safe location to meet seller</li>
+                            <li>Avoid cash transactions</li>
+                            <li>Beware of unrealistic offers</li>
                         </ol>
                     </div>
                 </div>
@@ -241,7 +253,6 @@
 
 
         </div>
-        
-    </div>
 
+    </div>
 @endsection

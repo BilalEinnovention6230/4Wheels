@@ -7,8 +7,8 @@
         }
 
         /* .prev {
-                                                                    float: left
-                                                                } */
+                                                                        float: left
+                                                                    } */
 
         .content__title {
             font-size: 20px;
@@ -1002,149 +1002,135 @@
                                                         <input type="file" class="form-control" name="image1"
                                                             multiple="">
 
-                                                        <div class="col">
-                                                            <a class="btn btn-success addthepic">ADD</a>
-                                                            <button class="btn btn-danger remove">Remove</button>
-                                                        </div>
-                                                @endif
-                                                @if ($data && $data->image2)
-                                                    <div class="col-md-8">
-                                                        <img src="{{ asset($data->image2) }}" width="150px"
-                                                            height="100px" alt="">
-
-                                                        <input type="file" class="form-control" name="image2"
-                                                            multiple="">
-
-                                                    </div>
-                                                    <div class="col">
                                                         <a class="btn btn-success addthepic">ADD</a>
                                                         <button class="btn btn-danger remove">Remove</button>
                                                     </div>
-                                                @endif
-                                                @if ($data && $data->image3)
-                                                    <div class="col-md-8">
-                                                        <img src="{{ asset($data->image3) }}" width="150px"
-                                                            height="100px" alt="">
-
-                                                        <input type="file" class="form-control" name="image3"
-                                                            multiple="">
-
-                                                    </div>
-                                                    <div class="col">
-                                                        <a class="btn btn-success addthepic">ADD</a>
-                                                        <button class="btn btn-danger remove">Remove</button>
-                                                    </div>
-                                                @endif
-                                                @if ($data && $data->image4)
-                                                    <div class="col-md-8">
-                                                        <img src="{{ asset($data->image4) }}" width="150px"
-                                                            height="100px" alt="">
-
-                                                        <input type="file" class="form-control" name="image4"
-                                                            multiple="">
-
-                                                    </div>
-                                                    <div class="col">
-                                                        <a class="btn btn-success addthepic">ADD</a>
-                                                        <button class="btn btn-danger remove">Remove</button>
-                                                    </div>
-                                                @endif
-                                                @if ($data && $data->image5)
-                                                    <div class="col-md-8">
-                                                        <img src="{{ asset($data->image5) }}" width="150px"
-                                                            height="100px" alt="">
-
-                                                        <input type="file" class="form-control" name="image5"
-                                                            multiple="">
-
-                                                    </div>
-                                                    <div class="col">
-                                                        <a class="btn btn-success addthepic">ADD</a>
-                                                        <button class="btn btn-danger remove">Remove</button>
-                                                    </div>
-                                                @endif
-                                                @if ($data && $data->image6)
-                                                    <div class="col-md-8">
-                                                        <img src="{{ asset($data->image6) }}" width="150px"
-                                                            height="100px" alt="">
-
-                                                        <input type="file" class="form-control" name="image6"
-                                                            multiple="">
-
-                                                    </div>
-                                                    <div class="col">
-                                                        <a class="btn btn-success addthepic">ADD</a>
-                                                        <button class="btn btn-danger remove">Remove</button>
-                                                    </div>
-                                                @endif
-                                                @if ($data && $data->image7)
-                                                    <div class="col-md-8">
-                                                        <img src="{{ asset($data->image7) }}" width="150px"
-                                                            height="100px" alt="">
-
-                                                        <input type="file" class="form-control" name="image7"
-                                                            multiple="">
-
-                                                    </div>
-                                                    <div class="col">
-                                                        <a class="btn btn-success addthepic">ADD</a>
-                                                        <button class="btn btn-danger remove">Remove</button>
-                                                    </div>
-                                                @endif
-                                                @if ($data && $data->image8)
-                                                    <div class="col-md-8">
-                                                        <img src="{{ asset($data->image8) }}" width="150px"
-                                                            height="100px" alt="">
-
-                                                        <input type="file" class="form-control" name="image8"
-                                                            multiple="">
-
-                                                    </div>
-                                                    <div class="col">
-                                                        <a class="btn btn-success addthepic">ADD</a>
-                                                        <button class="btn btn-danger remove">Remove</button>
-                                                    </div>
-                                                @endif
-                                                @if ($data && $data->image9)
-                                                    <div class="col-md-8">
-                                                        <img src="{{ asset($data->image9) }}" width="150px"
-                                                            height="100px" alt="">
-
-                                                        <input type="file" class="form-control" name="image9"
-                                                            multiple="">
-
-                                                    </div>
-                                                    <div class="col">
-                                                        <a class="btn btn-success addthepic">ADD</a>
-                                                        <button class="btn btn-danger remove">Remove</button>
-                                                    </div>
-                                                @endif
-                                            @else
-                                                <div class="col-md-8">
-                                                    <input type="file" class="form-control" name="image9"
-                                                        multiple="">
-                                                </div>
-                                                <div class="col">
-                                                    <a class="btn btn-success addthepic">ADD</a>
-                                                    <button class="btn btn-danger remove">Remove</button>
-                                                </div>
-                                            @endif
                                         </div>
+                                        @endif
+                                        @if ($data && $data->image2)
+                                            <div class="col-md-8">
+                                                <img src="{{ asset($data->image2) }}" width="150px" height="100px"
+                                                    alt="">
+
+                                                <input type="file" class="form-control" name="image2"
+                                                    multiple="">
+                                                <a class="btn btn-success addthepic">ADD</a>
+                                                <button type="button" class="btn btn-danger remove">Remove</button>
+                                            </div>
+                                        @endif
+                                        @if ($data && $data->image3)
+                                            <div class="col-md-8">
+                                                <img src="{{ asset($data->image3) }}" width="150px" height="100px"
+                                                    alt="">
+
+                                                <input type="file" class="form-control" name="image3"
+                                                    multiple="">
+
+
+                                                <a class="btn btn-success addthepic">ADD</a>
+                                                <button type="button" class="btn btn-danger remove">Remove</button>
+                                            </div>
+                                        @endif
+                                        @if ($data && $data->image4)
+                                            <div class="col-md-8">
+                                                <img src="{{ asset($data->image4) }}" width="150px" height="100px"
+                                                    alt="">
+
+                                                <input type="file" class="form-control" name="image4"
+                                                    multiple="">
+
+
+                                                <a class="btn btn-success addthepic">ADD</a>
+                                                <button type="button" class="btn btn-danger remove">Remove</button>
+                                            </div>
+                                        @endif
+                                        @if ($data && $data->image5)
+                                            <div class="col-md-8">
+                                                <img src="{{ asset($data->image5) }}" width="150px" height="100px"
+                                                    alt="">
+
+                                                <input type="file" class="form-control" name="image5"
+                                                    multiple="">
+
+
+                                                <a class="btn btn-success addthepic">ADD</a>
+                                                <button type="button" class="btn btn-danger remove">Remove</button>
+                                            </div>
+                                        @endif
+                                        @if ($data && $data->image6)
+                                            <div class="col-md-8">
+                                                <img src="{{ asset($data->image6) }}" width="150px" height="100px"
+                                                    alt="">
+
+                                                <input type="file" class="form-control" name="image6"
+                                                    multiple="">
+
+
+                                                <a class="btn btn-success addthepic">ADD</a>
+                                                <button type="button" class="btn btn-danger remove">Remove</button>
+                                            </div>
+                                        @endif
+                                        @if ($data && $data->image7)
+                                            <div class="col-md-8">
+                                                <img src="{{ asset($data->image7) }}" width="150px" height="100px"
+                                                    alt="">
+
+                                                <input type="file" class="form-control" name="image7"
+                                                    multiple="">
+
+
+                                                <a class="btn btn-success addthepic">ADD</a>
+                                                <button type="button" class="btn btn-danger remove">Remove</button>
+                                            </div>
+                                        @endif
+                                        @if ($data && $data->image8)
+                                            <div class="col-md-8">
+                                                <img src="{{ asset($data->image8) }}" width="150px" height="100px"
+                                                    alt="">
+
+                                                <input type="file" class="form-control" name="image8"
+                                                    multiple="">
+
+
+                                                <a class="btn btn-success addthepic">ADD</a>
+                                                <button type="button" class="btn btn-danger remove">Remove</button>
+                                            </div>
+                                        @endif
+                                        @if ($data && $data->image9)
+                                            <div class="col-md-8">
+                                                <img src="{{ asset($data->image9) }}" width="150px" height="100px"
+                                                    alt="">
+
+                                                <input type="file" class="form-control" name="image9"
+                                                    multiple="">
+
+
+                                                <a class="btn btn-success addthepic">ADD</a>
+                                                <button type="button" class="btn btn-danger remove">Remove</button>
+                                            </div>
+                                        @endif
+                                    @else
+                                        <div class="col-md-8">
+                                            <input type="file" class="form-control" name="image1" multiple="">
+
+                                            <a class="btn btn-success addthepic">ADD</a>
+                                            <button type="button" class="btn btn-danger remove">Remove</button>
+                                        </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
-                            <div class=" mt-4 text-center">
-                                <button class="btn  btn-danger js-btn-prev prev" type="button"
-                                    title="Prev">Prev</button>
-                                <button class="btn  btn-danger ml-auto ms-2" type="submit"
-                                    title="Next">Submit</button>
-                            </div>
+                        </div>
+                        <div class=" mt-4 text-center">
+                            <button class="btn  btn-danger js-btn-prev prev" type="button" title="Prev">Prev</button>
+                            <button class="btn  btn-danger ml-auto ms-2" type="submit" title="Next">Submit</button>
                         </div>
                     </div>
                 </div>
-            </form>
-
         </div>
+        </form>
+
+    </div>
     </div>
 @endsection
 @section('script')
@@ -1182,8 +1168,8 @@
 
             var total_images = $('input[type=file]');
             var i = 0;
-            if (total_images.length() > 0) {
-                i = total_images.length();
+            if (total_images && total_images.length > 0) {
+                i = total_images.length;
             }
             // Add a new file input field
             $('.addthepic').click(function() {
@@ -1192,7 +1178,7 @@
                     $('#row_field').append(
                         '<div class="row mt-2"><div class="col-md-8"><input type="file" class="form-control" name="image' +
                         i +
-                        '" multiple=""></div><div class="col"><button class="btn btn-danger remove">Remove</button></div></div>'
+                        '" multiple=""></div><div class="col"><button type="button" class="btn btn-danger remove">Remove</button></div></div>'
                     );
                 } else {
                     alert("You can add a maximum of 9 pictures.");
@@ -1202,7 +1188,7 @@
             // Remove the file input field
             $(document).on('click', '.remove', function() {
                 if (i > 1) {
-                    $(this).closest('.row').remove();
+                    $(this).closest('.col-md-8').remove();
                     i--;
                 }
             });

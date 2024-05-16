@@ -75,44 +75,44 @@ class CarRegistration extends Controller
 
     public function bookingcreated(Request $req)
     {
-        // dd($req);
-        $validator = Validator::make($req->all(), [
-            'carRegistratoin' => 'required',
-            'CarName' => 'required',
-            'askingprice' => 'required|numeric',
-            'description' => 'required',
-            'partexchange' => 'required|',
-            'Milage' => 'required',
-            'modelYear' => 'required|numeric',
-            'Doors' => 'required',
-            'GearBox' => 'required',
-            'engintype' => 'required',
-            'colour' => 'required',
-            'PistonHead' => 'required',
-            'Aspiration' => 'required',
-            'enginesize' => 'required',
-            'Cylinder' => 'required',
-            'FuelConsumption' => 'required',
-            'Health' => 'required',
-            'noCylinder' => 'required',
-            'Owners' => 'required',
-            'topspeed' => 'required|numeric',
-            'Drivenwheels' => 'required',
-            'fullname' => 'required',
-            'lastname' => 'required',
-            'address1' => 'required',
-            'address2' => 'required',
-            'town' => 'required',
-            'country' => 'required',
-            'Postcode' => 'required|numeric|digits:6',
-            'Telephone' => 'required|numeric|digits:11',
-        ]);
-        if ($validator->fails()) {
-            return redirect()
-                ->back()
-                ->withErrors($validator)
-                ->withInput();
-        }
+        // dd($req);   
+        // $validator = Validator::make($req->all(), [
+        //     'carRegistratoin' => 'required',
+        //     'CarName' => 'required',
+        //     'askingprice' => 'required|numeric',
+        //     'description' => 'required',
+        //     'partexchange' => 'required|',
+        //     'Milage' => 'required',
+        //     'modelYear' => 'required|numeric',
+        //     'Doors' => 'required',
+        //     'GearBox' => 'required',
+        //     'engintype' => 'required',
+        //     'colour' => 'required',
+        //     'PistonHead' => 'required',
+        //     'Aspiration' => 'required',
+        //     'enginesize' => 'required',
+        //     'Cylinder' => 'required',
+        //     'FuelConsumption' => 'required',
+        //     'Health' => 'required',
+        //     'noCylinder' => 'required',
+        //     'Owners' => 'required',
+        //     'topspeed' => 'required|numeric',
+        //     'Drivenwheels' => 'required',
+        //     'fullname' => 'required',
+        //     'lastname' => 'required',
+        //     'address1' => 'required',
+        //     'address2' => 'required',
+        //     'town' => 'required',
+        //     'country' => 'required',
+        //     'Postcode' => 'required|numeric|digits:6',
+        //     'Telephone' => 'required|numeric|digits:11',
+        // ]);
+        // if ($validator->fails()) {
+        //     return redirect()
+        //         ->back()
+        //         ->withErrors($validator)
+        //         ->withInput();
+        // }
         $data = new ModelCarRegistration;
         $data->RegistrrationNumber = $req->carRegistratoin;
         $data->CarName = $req->CarName;
@@ -148,6 +148,7 @@ class CarRegistration extends Controller
         for ($i = 1; $i <= 9; $i++) {
             if ($req->hasFile("image$i")) {
                 $imageName = time() . "_$i." . $req->file("image$i")->extension();
+                // dd( $imageName); 
                 $relativeImagePath = "images/$imageName";
                 $req->file("image$i")->move(public_path('images'), $imageName);
                 $imageFields["image$i"] = $relativeImagePath;
