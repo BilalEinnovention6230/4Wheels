@@ -49,6 +49,7 @@ class MechanicShopController extends Controller
 
     public function loginsucces(Request $req)
     {
+        // return $request;
         $contact = $req->contact;
         $password = $req->password;
 
@@ -97,7 +98,7 @@ class MechanicShopController extends Controller
             $data->image = $relativeImagePath;
         }
         $data->save();
-        return redirect()->route('WebsiteLandingPage');
+        return redirect()->route('mechaniclogin');
     }
     public function workshops($recordid)
     {
