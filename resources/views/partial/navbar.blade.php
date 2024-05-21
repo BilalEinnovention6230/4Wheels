@@ -48,10 +48,12 @@
         <div class="container-fluid">
             <img src="logo.png" class="imgn" alt="">
             <div class="text-end short" >
-
-                <a href="{{ route('WebsiteLandingPage') }}" class="btn btn-light  me-2">
+                @if (Route::currentRouteName() !== 'mechanicdashboard')
+                <a href="{{ route('WebsiteLandingPage') }}" class="btn btn-light me-2">
                     Home
                 </a>
+            @endif
+            
                 <a href="new" class="btn btn-light  me-2">
                     Sign Out
                 </a>
