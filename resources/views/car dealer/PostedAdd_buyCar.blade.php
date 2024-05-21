@@ -1,5 +1,6 @@
 @extends('partial.practice')
 @section('content')
+
     <div class="container bgcolor mt-3 ">
 
 
