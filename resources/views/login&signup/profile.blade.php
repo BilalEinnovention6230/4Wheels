@@ -8,9 +8,9 @@
                 <div class="col-lg-4">
                     <div class="card mb-4">
                         <div class="card-body text-center">
-                            <img src={{ auth()->user()->image }}
+                            <img src={{ auth()->user()->image ?? '' }}
                                 alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
-                            <h5 class="my-3">{{ auth()->user()->name }}</h5>
+                            <h5 class="my-3">{{ auth()->user()->name ?? '' }}</h5>
                             {{-- <div class="d-flex justify-content-center mb-2">
                 <button type="button" class="btn btn-primary">Follow</button>
                 <button type="button" class="btn btn-outline-primary ms-1">Message</button>
@@ -52,7 +52,7 @@
                                     <p class="mb-0">Full Name</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">{{ auth()->user()->name }}</p>
+                                    <p class="text-muted mb-0">{{ auth()->user()->name ?? '' }}</p>
                                 </div>
                             </div>
                             <hr>
@@ -61,7 +61,7 @@
                                     <p class="mb-0">Email</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">{{ auth()->user()->email }}</p>
+                                    <p class="text-muted mb-0">{{ auth()->user()->email ?? '' }}</p>
                                 </div>
                             </div>
                             <hr>
@@ -70,7 +70,7 @@
                                     <p class="mb-0">Phone</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">{{ auth()->user()->mobile_number }}</p>
+                                    <p class="text-muted mb-0">{{ auth()->user()->mobile_number ?? '' }}</p>
                                 </div>
                             </div>
                             <hr>
@@ -79,7 +79,7 @@
                                     <p class="mb-0">Address</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">{{ auth()->user()->address }}</p>
+                                    <p class="text-muted mb-0">{{ auth()->user()->address ?? '' }}</p>
                                 </div>
                             </div>
                             <hr>
@@ -172,9 +172,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($carRegistrations as $item)
+                            @foreach ($carRegistrations as $key => $item)
                                 <tr>
-                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $key + 1 }}</td>
                                     <td>{{ $item->RegistrrationNumber }}</td>
                                     <td>{{ $item->CarName }}</td>
                                     <td>{{ $item->CarPrice }}</td>
@@ -219,9 +219,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($insuranceAdds as $item)
+                            @foreach ($insuranceAdds as $key => $item)
                                 <tr>
-                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $key + 1 }}</td>
                                     <td>{{ $item->Lname }}</td>
                                     <td>{{ $item->ParmanentAdress }}</td>
                                     <td>{{ $item->CNICnumber }}</td>
@@ -263,9 +263,9 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($maintenanceAdds as $item)
+                            @foreach ($maintenanceAdds as $key => $item)
                                 <tr>
-                                    <td>{{ $item->id }}</td>
+                                    <td>{{ $key + 1 }}</td>
                                     <td>{{ $item->lastname }}</td>
                                     <td>{{ $item->address }}</td>
                                     <td>{{ $item->contact }}</td>
