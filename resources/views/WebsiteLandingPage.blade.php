@@ -256,7 +256,7 @@
             @foreach ($insurance_companiest as $company)
                 <div class="col-3">
                     <div class="card text-start">
-                        <img class="card-img-top" src="{{ $company->image }}" width="100%" height="150px"
+                        <img class="card-img-top" src="{{ $company->UploadLogo }}" width="100%" height="150px"
                             alt="Car Image">
                         <div class="card-body">
                             <h4 class="card-title">Comprehensive {{ $$company->CompanyName ?? '' }}</h4>
