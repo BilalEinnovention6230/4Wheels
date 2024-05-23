@@ -76,6 +76,7 @@ Route::get('mechaniclogin', [App\Http\Controllers\MechanicShopController::class,
 Route::get('/mechanicdashboard/{id}', [App\Http\Controllers\MechanicShopController::class, 'mechanicdashboard'])->name('mechanicdashboard');
 Route::post('loginsucces', [App\Http\Controllers\MechanicShopController::class, 'loginsucces'])->name('loginsucces');
 Route::post('register', [App\Http\Controllers\MechanicShopController::class, 'register'])->name('register');
+Route::post('register_mechanic', [App\Http\Controllers\MechanicShopController::class, 'register_mechanic'])->name('register_mechanic');
 Route::get('workshops/{recordid}', [App\Http\Controllers\MechanicShopController::class, 'workshops'])->name('workshops');
 Route::get('deletemyadd/{recordid}', [App\Http\Controllers\MechanicShopController::class, 'deletemyadd'])->name('deletemyadd');
 Route::get('/deletebooking/{user_id}/{item_id}', [App\Http\Controllers\MechanicShopController::class, 'deletebooking'])->name('deletebooking');
@@ -91,10 +92,13 @@ Route::get('view/{id}', [profileController::class, 'view'])->name('view');
 
 Route::get('/', function () {
     return view('login&signup\login');
-});
+})->name('/');
 
 
 Route::get('/new', function () {
+    return view('login&signup\signup');
+});
+Route::get('/new/mechanic', function () {
     return view('login&signup\signup');
 });
 

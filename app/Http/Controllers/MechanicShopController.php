@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use Illuminate\Http\Request;
 use App\Models\AcceptedOrders;
 use App\Models\InstantMaintenance;
 use App\Models\MechanicRegistration;
-use Illuminate\Http\Request;
 
 class MechanicShopController extends Controller
 {
@@ -70,6 +71,27 @@ class MechanicShopController extends Controller
     }
 
     public function register(Request $req)
+    {
+        // return $req;
+        $data = new User;
+        $data->name = $req->Wname;
+        $data->email = $req->email;
+        $data->mobile_number = $req->Contact;
+        $data->address = $req->Address;
+        $data->password = bcrypt($req->password);
+        $data->save();
+
+        if($req->hasFile('image')){
+            $imageName = time() . '.' . $req->image->extension();
+            // Public Folder
+            $image = $req->image->move(public_path('images'), $imageName);
+            $relativeImagePath = str_replace(public_path(), '', $image);
+            $data->image = $relativeImagePath;
+        }
+        $data->save();
+        return redirect()->route('/');
+    }
+    public function register_mechanic(Request $req)
     {
         // return $req;
         $data = new MechanicRegistration;

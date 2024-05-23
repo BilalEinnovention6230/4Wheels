@@ -187,7 +187,7 @@
                 <input type="submit" value="Login">
             </div>
             <div class="signup-link">
-                Not a member? <a href="new">Signup now</a>
+                Not a member? <a href="/new/mechanic">Signup now</a>
             </div>
         </form>
     </div>
