@@ -97,7 +97,7 @@ Route::get('/', function () {
 
 Route::get('/new', function () {
     return view('login&signup\signup');
-});
+})->name('new');
 Route::get('/new/mechanic', function () {
     return view('login&signup\mechanic_signup');
 });

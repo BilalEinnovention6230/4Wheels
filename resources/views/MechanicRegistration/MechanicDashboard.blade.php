@@ -8,8 +8,8 @@
                 <div class="col-lg-4">
                     <div class="card mb-4">
                         <div class="card-body text-center">
-                            <img src={{$user->image}} alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
-                            <h5 class="my-3">{{$user->Wname}}</h5>
+                            <img src={{ $user->image }} alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                            <h5 class="my-3">{{ $user->Wname }}</h5>
                             {{-- <div class="d-flex justify-content-center mb-2">
                 <button type="button" class="btn btn-primary">Follow</button>
                 <button type="button" class="btn btn-outline-primary ms-1">Message</button>
@@ -51,7 +51,7 @@
                                     <p class="mb-0">Full Name</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">{{$user->name}}</p>
+                                    <p class="text-muted mb-0">{{ $user->Wname }}</p>
                                 </div>
                             </div>
                             <hr>
@@ -60,25 +60,27 @@
                                     <p class="mb-0">Contact</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">{{$user->Contact}}</p>
+                                    <p class="text-muted mb-0">{{ $user->Contact }}</p>
                                 </div>
                             </div>
                             <hr>
-                            <div class="row">
-                                <div class="col-sm-3">
-                                    <p class="mb-0">Services</p>
+                            @if ($user->Service)
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <p class="mb-0">Services</p>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <p class="text-muted mb-0">{{ $user->Service }}</p>
+                                    </div>
                                 </div>
-                                <div class="col-sm-9">
-                                    <p class="text-muted mb-0">{{$user->Service}}</p>
-                                </div>
-                            </div>
-                            <hr>
+                                <hr>
+                            @endif
                             <div class="row">
                                 <div class="col-sm-3">
                                     <p class="mb-0">Address</p>
                                 </div>
                                 <div class="col-sm-9">
-                                    <p class="text-muted mb-0">{{$user->Address}}</p>
+                                    <p class="text-muted mb-0">{{ $user->Address }}</p>
                                 </div>
                             </div>
                             <hr>
@@ -184,10 +186,11 @@
                                     <td>{{ $item->model }}</td>
                                     <td>{{ $item->carissues }}</td>
                                     <td>
-                                        <a href="{{ route('deletebooking', ['user_id' => $user->id, 'item_id' => $item->id]) }}">
+                                        <a
+                                            href="{{ route('deletebooking', ['user_id' => $user->id, 'item_id' => $item->id]) }}">
                                             <i class="fa-solid fa-check btn-success"></i>
                                         </a>
-                                                                                
+
                                         <a
                                             href="https://www.google.com/maps?q={{ $item->latitude }},{{ $item->longitude }}"><i
                                                 class="fa-solid fa-location-dot"></i></a>
@@ -244,7 +247,7 @@
                                         {{-- <a href="{{ route('deletebooking', ['user_id' => $user->id, 'item_id' => $item->id]) }}">
                                             <i class="fa-solid fa-check btn-success"></i>
                                         </a> --}}
-                                                                                
+
                                         <a
                                             href="https://www.google.com/maps?q={{ $item->latitude }},{{ $item->longitude }}"><i
                                                 class="fa-solid fa-location-dot"></i></a>

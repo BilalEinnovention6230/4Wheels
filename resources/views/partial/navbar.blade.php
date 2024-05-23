@@ -54,7 +54,7 @@
                 </a>
             @endif
             
-                <a href="new" class="btn btn-light  me-2">
+                <a href="{{route('/')}}" class="btn btn-light  me-2">
                     Sign Out
                 </a>
                 <a href="{{ route('Profile') }}" class="text-white icon">
