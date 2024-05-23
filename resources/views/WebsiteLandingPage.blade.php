@@ -186,22 +186,24 @@
         <div class="scrollable_box">
 
             @foreach ($mechanics as $data)
-                <div class="col-3">
-                    <div class="card text-start">
-                        <img class="card-img-top" src="{{ $data->image }}" width="100%" height="150px"
-                            alt="Car Image">
-                        <div class="card-body">
-                            <h4 class="card-title">{{ $data->Wname ?? '' }}</h4>
-                            <p class="card-text">Service Type: {{ $data->Service ?? '' }}</p>
-                            <p class="card-text">Specialization:{{ $data->Specialization ?? '' }}</p>
-                            <p class="card-text">Contact: {{ $data->Contact ?? '' }}</p>
-                            <div class="text-center">
-                                <a href="tel:{{ $data->Contact ?? '' }}" class="btn btn-danger">Contact Now</a>
+                @if ($data->latitude)
+                    <div class="col-3">
+                        <div class="card text-start">
+                            <img class="card-img-top" src="{{ $data->image }}" width="100%" height="150px"
+                                alt="Car Image">
+                            <div class="card-body">
+                                <h4 class="card-title">{{ $data->Wname ?? '' }}</h4>
+                                <p class="card-text">Service Type: {{ $data->Service ?? '' }}</p>
+                                <p class="card-text">Specialization:{{ $data->Specialization ?? '' }}</p>
+                                <p class="card-text">Contact: {{ $data->Contact ?? '' }}</p>
+                                <div class="text-center">
+                                    <a href="tel:{{ $data->Contact ?? '' }}" class="btn btn-danger">Contact Now</a>
+                                </div>
                             </div>
-                        </div>
 
+                        </div>
                     </div>
-                </div>
+                @endif
             @endforeach
         </div>
         {{-- </div> --}}
