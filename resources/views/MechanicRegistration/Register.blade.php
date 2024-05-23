@@ -6,7 +6,8 @@
                 Register Your Shop
             </div>
             <div class="card-body">
-                <form action="{{ route('register') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('register_mechanic') }}" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="dashboard" value="1" id="">
                     @csrf
                     <div class="row">
                         <div class="col-6">

@@ -120,6 +120,9 @@ class MechanicShopController extends Controller
             $data->image = $relativeImagePath;
         }
         $data->save();
+        if(isset($req->dashboard)){
+            return redirect()->route('WebsiteLandingPage')->with('success', 'Shop registered successfully');
+        }
         return redirect()->route('mechaniclogin');
     }
     public function workshops($recordid)
