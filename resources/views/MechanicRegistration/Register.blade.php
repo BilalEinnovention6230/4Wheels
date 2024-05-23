@@ -63,7 +63,7 @@
                             <div class="col-6">
                                 <div class="form-group">
                                     <label for="Cloesed">Cloesed On </label>
-                                    <input class="form-control" placeholder="Enter Cloesed day" type="text"
+                                    <input class="form-control" placeholder="Enter Cloesed day"type="time"
                                         name="closeday" id="Cloesed">
                                 </div>
                             </div>
