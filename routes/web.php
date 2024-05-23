@@ -99,7 +99,7 @@ Route::get('/new', function () {
     return view('login&signup\signup');
 });
 Route::get('/new/mechanic', function () {
-    return view('login&signup\signup');
+    return view('login&signup\mechanic_signup');
 });
 
 Route::get('workshopsdetails', function () {

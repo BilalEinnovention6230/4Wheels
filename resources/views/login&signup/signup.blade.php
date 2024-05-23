@@ -158,7 +158,7 @@ form .user-details .input-box{
   <div class="container">
     <div class="title">Registration</div>
     <div class="content">
-      <form action="{{route('register_mechanic')}}" method="POST" enctype="multipart/form-data">
+      <form action="{{route('register')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="user-details">
           <div class="input-box">
@@ -170,7 +170,7 @@ form .user-details .input-box{
               @enderror
               </span>
           </div>
-          {{-- <div class="input-box">
+          <div class="input-box">
             <span class="details">Email</span>
             <input type="text" placeholder="Enter your username" name="email" required>
             <span class="text-danger">
@@ -178,7 +178,7 @@ form .user-details .input-box{
                   {{ $message }}
               @enderror
               </span>
-          </div> --}}
+          </div>
           <div class="input-box">
             <span class="details">Mobile Number</span>
             <input type="text" placeholder="Enter your mobile number" name="Contact" required>
